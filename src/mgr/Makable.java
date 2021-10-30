@@ -7,6 +7,4 @@ public interface Makable {
     /*void read();*/
     boolean matches(String kwd);
     void print();
-
 }
-
