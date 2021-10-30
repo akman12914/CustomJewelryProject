@@ -6,5 +6,8 @@ public class test {
         System.out.print("김수진");
         System.out.print("성유진");
         System.out.print("김ㅅ쥔2");
+        System.out.print("박민영");
+        System.out.print("박민영");
+        System.out.print("박민영");
     }
 }
