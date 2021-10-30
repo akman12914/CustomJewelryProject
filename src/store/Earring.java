@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Earring extends Jewelry{
 
-    String earcuff;
+    String chooseEarcuff;
     public void read(Scanner scan,Order order) {
         super.read(scan);
         System.out.print("귀찌로 변경하겠습니까?y/n");
-        earcuff = scan.next();
+        chooseEarcuff = scan.next();
     }
     @Override
     public boolean matches(String kwd) {
@@ -17,7 +17,7 @@ public class Earring extends Jewelry{
     @Override
     public void print() {
         super.print();
-        if(earcuff.contentEquals("y")) {
+        if(chooseEarcuff.contentEquals("y")) {
             System.out.println("[옵션]귀찌로 변경");
         }
     }
