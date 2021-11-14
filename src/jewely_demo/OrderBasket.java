@@ -28,10 +28,7 @@ public class OrderBasket extends JFrame {
     private static final long serialVersionUID = 1L;
 
     String finalStone = null;
-    public OrderBasket(String finalStone) {
-        this.finalStone = finalStone;
 
-    }
 
 
 
@@ -69,48 +66,52 @@ public class OrderBasket extends JFrame {
     ImageIcon colorImg = new ImageIcon("bold.jfif");
     ImageIcon designImg = new ImageIcon("bold.jfif");
 
-            JLabel stoneimgLabel;
-            JLabel colorimgLabel = new JLabel(colorImg);
-            JLabel designimgLabel = new JLabel(designImg);
+    JLabel stoneimgLabel;
+    JLabel colorimgLabel = new JLabel(colorImg);
+    JLabel designimgLabel = new JLabel(designImg);
+
+
+    public OrderBasket(String finalStone) {
+        this.finalStone = finalStone;
 
 
         if (stones[0].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[3]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[3]);
+        }
         if (stones[1].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[4]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[4]);
+        }
         if (stones[2].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[5]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[5]);
+        }
         if (stones[3].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[6]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[6]);
+        }
         if (stones[4].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[7]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[7]);
+        }
         if (stones[5].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[8]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[8]);
+        }
         if (stones[6].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[9]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[9]);
+        }
         if (stones[7].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[10]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[10]);
+        }
         if (stones[8].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[11]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[11]);
+        }
         if (stones[9].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[12]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[12]);
+        }
         if (stones[10].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[13]);
-    }
+            stoneimgLabel = new JLabel(beforeallImage[13]);
+        }
         if (stones[11].equals(finalStone)) {
-        stoneimgLabel = new JLabel(beforeallImage[14]);
+            stoneimgLabel = new JLabel(beforeallImage[14]);
+        }
     }
-
     JLabel stonetxtLabel = new JLabel("<html>4월 다이아몬드<br>순결,고귀,용기,신념<p>120000원</html>",SwingConstants.CENTER);
     JLabel colortxtLabel = new JLabel("<html>Gold<br><p>25000원</html>",SwingConstants.CENTER);
     JLabel designtxtLabel = new JLabel("<html>Bold design<br><p>20000원</html>",SwingConstants.CENTER);

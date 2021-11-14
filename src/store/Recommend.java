@@ -5,7 +5,6 @@ import java.awt.*;import java.awt.event.ActionEvent;import java.awt.event.Action
 
 
 public class Recommend extends JFrame {
-    String n = "충돌 테스트";
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)", "루비(7월)",
             "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
     ImageIcon[] beforeLookImage = {new ImageIcon("RecommendLookImage/1월.jpg"),
@@ -58,8 +57,10 @@ public class Recommend extends JFrame {
 
         //선택한 월에 따라 변경되는 메세지
         if (stones[0].equals(Arr)) {
-            masegeLabel1 = new JLabel("선택하신 1월 탄생석인 가넷은");
-            masegeLabel2 = new JLabel("Black, Rose pink, Burgundy color와 함께 매치해보세요.");
+            masegeLabel1 = new JLabel("<html>선택하신 1월 탄생석인 가넷은<br>Black, Rose pink, Burgundy color와 <p>함께 매치해보세요.</html>");
+            //masegeLabel2 = new JLabel("Black, Rose pink, Burgundy color와 함께 매치해보세요.");
+
+            //JLabel stonetxtLabel = new JLabel("<html>4월 다이아몬드<br>순결,고귀,용기,신념<p>120000원</html>",SwingConstants.CENTER);
         }
         if (stones[1].equals(Arr)) {
             masegeLabel1 = new JLabel("선택하신 2월 탄생석인 자수정은");
@@ -87,10 +88,10 @@ public class Recommend extends JFrame {
         masegeLabel1.setBounds(200, 320, 1000, 200);
         mainPanel.add(masegeLabel1);
 
-        masegeLabel2.setFont(new Font("돋움", Font.PLAIN, 20));
+        /*masegeLabel2.setFont(new Font("돋움", Font.PLAIN, 20));
         masegeLabel2.setForeground(Color.black);
         masegeLabel2.setBounds(200, 380, 1000, 200);
-        mainPanel.add(masegeLabel2);
+        mainPanel.add(masegeLabel2);*/
 
 
         //선택한 월에 따라 변경되는 추천 사진
