@@ -19,12 +19,18 @@ import javax.swing.border.Border;
 
 public class OrderBasket extends JFrame {
 
+
+    Image lookImage;
+    Image changeallImage;
+    ImageIcon afterallImage;
+
     @Serial
     private static final long serialVersionUID = 1L;
 
-    String finalStone;
+    String finalStone = null;
     public OrderBasket(String finalStone) {
         this.finalStone = finalStone;
+
     }
 
 
@@ -45,14 +51,66 @@ public class OrderBasket extends JFrame {
     RoundedButton reSelect = new RoundedButton("선택 수정하기");
     RoundedButton Order = new RoundedButton("주문하기");
 
+    String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)", "루비(7월)",
+            "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
 
-    ImageIcon stoneImg = new ImageIcon("bold.jfif");
+    ImageIcon[] beforeallImage = {new ImageIcon("RingColorImage/실버.PNG"),
+            new ImageIcon("RingColorImage/골드.PNG"), new ImageIcon("RingColorImage/로즈골드.PNG"),
+            new ImageIcon("StoneImage/가넷.jpg"), new ImageIcon("StoneImage/자수정.jpg"),
+            new ImageIcon("StoneImage/아쿠아마린.jpg"), new ImageIcon("StoneImage/다이아몬드.jpg"),
+            new ImageIcon("StoneImage/에메랄드.jpg"), new ImageIcon("StoneImage/진주.jpg"),
+            new ImageIcon("StoneImage/루비.jpg"), new ImageIcon("StoneImage/페리도트.jpg"),
+            new ImageIcon("StoneImage/사파이어.jpg"),  new ImageIcon("StoneImage/오팔.jpg"),
+            new ImageIcon("StoneImage/토파즈.jpg"), new ImageIcon("StoneImage/터키석.jpg")};
+
+
+
+//    ImageIcon stoneImg = new ImageIcon("bold.jfif");
     ImageIcon colorImg = new ImageIcon("bold.jfif");
     ImageIcon designImg = new ImageIcon("bold.jfif");
 
-    JLabel stoneimgLabel = new JLabel(stoneImg);
-    JLabel colorimgLabel = new JLabel(colorImg);
-    JLabel designimgLabel = new JLabel(designImg);
+            JLabel stoneimgLabel;
+            JLabel colorimgLabel = new JLabel(colorImg);
+            JLabel designimgLabel = new JLabel(designImg);
+
+
+        if (stones[0].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[3]);
+    }
+        if (stones[1].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[4]);
+    }
+        if (stones[2].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[5]);
+    }
+        if (stones[3].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[6]);
+    }
+        if (stones[4].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[7]);
+    }
+        if (stones[5].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[8]);
+    }
+        if (stones[6].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[9]);
+    }
+        if (stones[7].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[10]);
+    }
+        if (stones[8].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[11]);
+    }
+        if (stones[9].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[12]);
+    }
+        if (stones[10].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[13]);
+    }
+        if (stones[11].equals(finalStone)) {
+        stoneimgLabel = new JLabel(beforeallImage[14]);
+    }
+
     JLabel stonetxtLabel = new JLabel("<html>4월 다이아몬드<br>순결,고귀,용기,신념<p>120000원</html>",SwingConstants.CENTER);
     JLabel colortxtLabel = new JLabel("<html>Gold<br><p>25000원</html>",SwingConstants.CENTER);
     JLabel designtxtLabel = new JLabel("<html>Bold design<br><p>20000원</html>",SwingConstants.CENTER);
@@ -61,11 +119,15 @@ public class OrderBasket extends JFrame {
     JCheckBox chk3 = new JCheckBox("커플내부");
     JCheckBox chk4 = new JCheckBox("커플외부");
 
+
     Border itemborder = BorderFactory.createTitledBorder("주문목록");
     Border textborder = BorderFactory.createTitledBorder("입력목록");
     Border stoneborder = BorderFactory.createTitledBorder("선택한 원석");
     Border colorborder = BorderFactory.createTitledBorder("선택한 색상");
     Border designborder = BorderFactory.createTitledBorder("선택한 디자인");
+
+
+
 
     public void addComponentsTopane() {
         setTitle("basket");
@@ -142,7 +204,8 @@ public class OrderBasket extends JFrame {
                         JOptionPane.INFORMATION_MESSAGE);
             }
             if (e.getSource() == Order) {
-                JOptionPane.showMessageDialog(null, "주문이 완료 되었습니다.", "message", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "주문이 완료 되었습니다.", "message",
+                        JOptionPane.INFORMATION_MESSAGE);
                 Recommend rec = new Recommend(finalStone);
                 setVisible(false);
 
