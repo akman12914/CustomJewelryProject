@@ -17,10 +17,27 @@ public class OrderManager extends Manager{
             if (id == 0)
                 break;
             Order od = new Order(id);
+            od.userRead(scan);
             od.read(scan);
             orderedjewelryList.add(od);
         }
     }
+
+    public void searchAll() {
+        String kwd = null;
+        while (true) {
+            System.out.print("번호: ");
+            kwd = scan.next();
+            if (kwd.contentEquals("end"))
+                break;
+            for (Order m : orderedjewelryList) {
+                if (m.matches(kwd))
+                    m.print();
+            }
+        }
+
+    }
+
 
     public void printAll() {
         for (Order od : orderedjewelryList) {
