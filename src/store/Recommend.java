@@ -1,158 +1,126 @@
 package store;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.*;import java.awt.event.ActionEvent;import java.awt.event.ActionListener;
+
 
 public class Recommend extends JFrame {
+    String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)", "루비(7월)",
+            "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
+    ImageIcon[] beforeLookImage = {new ImageIcon("1월.jpg"), new ImageIcon("2월.jpg"), new ImageIcon("3월.jpg"),
+            new ImageIcon("4월.jpg"), new ImageIcon("5월.jpg"), new ImageIcon("6월.jpg"),
+            new ImageIcon("7월.jpg"), new ImageIcon("8월.jpg"), new ImageIcon("9월.jpg"),
+            new ImageIcon("10월.jpg"), new ImageIcon("11월.jpg"), new ImageIcon("12월.jpg")};
 
-        int num;
-        Recommend(int num) {
-            super("결제완료_추천");
-            this.num=num;
-            setLayout(new FlowLayout());
-            JPanel jPanel = new JPanel();
-            Dimension frameSize = getSize();
-            Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
-            jPanel.setBackground(Color.WHITE);
-            setSize(1920, 1280);
-            add(jPanel);
-            setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
-            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            setVisible(true);
+    JFrame mainFrame;
+    JPanel mainPanel;
+
+    Image lookImage;
+    Image changeLookImage;
+    ImageIcon afterLookImage;
+
+    JLabel lookLabel = new JLabel();
+    JLabel masegeLabel1;
+    JLabel masegeLabel2;
+    JLabel commonLabel1;
+    JLabel commonLabel2;
+
+
+    Recommend(String Arr) {
+        mainFrame = new JFrame("결제완료_추천");
+        mainFrame.setSize(1920, 1280);
+        mainPanel = new JPanel();
+       /* Dimension frameSize = getSize();
+        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);*/
+        mainFrame.setBackground(Color.WHITE);
+        mainPanel.setBackground(Color.WHITE);
+        mainPanel.setLayout(null);
+
+
+
+
+        //공통으로 출력되는 글
+        commonLabel1 = new JLabel("< 주문 완료 >");
+        commonLabel1.setFont(new Font("돋움", Font.BOLD, 23));
+        commonLabel1.setForeground(Color.black);
+        commonLabel1.setBounds(180, 200, 400, 200);
+        mainPanel.add(commonLabel1);
+
+        commonLabel2 = new JLabel("고객님의 주문이 완료되었습니다.");
+        commonLabel2.setFont(new Font("돋움", Font.PLAIN, 20));
+        commonLabel2.setForeground(Color.black);
+        commonLabel2.setBounds(200, 260, 1000, 200);
+        mainPanel.add(commonLabel2);
+
+
+        //선택한 월에 따라 변경되는 메세지
+        if (stones[0].equals(Arr)) {
+            masegeLabel1 = new JLabel("선택하신 1월 탄생석인 가넷은");
+            masegeLabel2 = new JLabel("Black, Rose pink, Burgundy color와 함께 매치해보세요.");
         }
-
-
-        public void paint(Graphics g) {
-            super.paint(g);
-            g.setColor(Color.black);
-            g.setFont(new Font("돋움", Font.BOLD, 30));
-            g.drawString("< 주문완료 > ", 200, 300);
-            g.setFont(new Font("돋움", Font.PLAIN, 25));
-            g.drawString("고객님의 주문이 완료되었습니다.", 210, 400);
-            switch (num) {
-                case 1:
-                    g.drawString("선택하신 1월 탄생석인 가넷은", 210, 450);
-                    g.drawString("우아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon janLook = new ImageIcon("1월.jpg");
-                    JLabel janImageLabel = new JLabel(janLook);
-                    janImageLabel.setIcon(janLook);
-                    add(janImageLabel);
-                    setVisible(true);
-                    break;
-                case 2:
-                    g.drawString("선택하신 2월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon febLook = new ImageIcon("2월.jpg");
-                    JLabel febImageLabel = new JLabel(febLook);
-                    febImageLabel.setIcon(febLook);
-                    add(febImageLabel);
-                    setVisible(true);
-                    break;
-                case 3:
-                    g.drawString("선택하신 3월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon marLook = new ImageIcon("3월.jpg");
-                    JLabel marImageLabel = new JLabel(marLook);
-                    marImageLabel.setIcon(marLook);
-                    add(marImageLabel);
-                    setVisible(true);
-                    break;
-                case 4:
-                    g.drawString("선택하신 4월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon aprLook = new ImageIcon("4월.jpg");
-                    JLabel aprImageLabel = new JLabel(aprLook);
-                    aprImageLabel.setIcon(aprLook);
-                    add(aprImageLabel);
-                    setVisible(true);
-                    break;
-                case 5:
-                    g.drawString("선택하신 5월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon mayLook = new ImageIcon("5월.jpg");
-                    JLabel mayImageLabel = new JLabel(mayLook);
-                    mayImageLabel.setIcon(mayLook);
-                    add(mayImageLabel);
-                    setVisible(true);
-                    break;
-                case 6:
-                    g.drawString("선택하신 6월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon junLook = new ImageIcon("6월.jpg");
-                    JLabel junImageLabel = new JLabel(junLook);
-                    junImageLabel.setIcon(junLook);
-                    add(junImageLabel);
-                    setVisible(true);
-                    break;
-                case 7:
-                    g.drawString("선택하신 7월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon julLook = new ImageIcon("7월.jpg");
-                    JLabel julImageLabel = new JLabel(julLook);
-                    julImageLabel.setIcon(julLook);
-                    add(julImageLabel);
-                    setVisible(true);
-                    break;
-                case 8:
-                    g.drawString("선택하신 8월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon ougLook = new ImageIcon("8월.jpg");
-                    JLabel ougImageLabel = new JLabel(ougLook);
-                    ougImageLabel.setIcon(ougLook);
-                    add(ougImageLabel);
-                    setVisible(true);
-                    break;
-                case 9:
-                    g.drawString("선택하신 9월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon septLook = new ImageIcon("9월.jpg");
-                    JLabel septImageLabel = new JLabel(septLook);
-                    septImageLabel.setIcon(septLook);
-                    add(septImageLabel);
-                    setVisible(true);
-                    break;
-                case 10:
-                    g.drawString("선택하신 10월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon octLook = new ImageIcon("10월.jpg");
-                    JLabel octImageLabel = new JLabel(octLook);
-                    octImageLabel.setIcon(octLook);
-                    add(octImageLabel);
-                    setVisible(true);
-                    break;
-                case 11:
-                    g.drawString("선택하신 11월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon novLook = new ImageIcon("11월.jpg");
-                    JLabel novImageLabel = new JLabel(novLook);
-                    novImageLabel.setIcon(novLook);
-                    add(novImageLabel);
-                    setVisible(true);
-                    break;
-                case 12:
-                    g.drawString("선택하신 12월 탄생석인 자수정은", 210, 450);
-                    g.drawString("단아하면서, 격식있는 스타일과 잘어울립니다.", 210, 500);
-
-                    ImageIcon decLook = new ImageIcon("12월.jpg");
-                    JLabel decImageLabel = new JLabel(decLook);
-                    decImageLabel.setIcon(decLook);
-                    add(decImageLabel);
-                    setVisible(true);
-                    break;
-                default: break;
-            }
+        if (stones[1].equals(Arr)) {
+            masegeLabel1 = new JLabel("선택하신 2월 탄생석인 자수정은");
+            masegeLabel2 = new JLabel("Black, Rose pink, Burgundy color와 함께 매치해보세요.");
         }
+        if (stones[2].equals(Arr)) {
+            masegeLabel1 = new JLabel("선택하신 3월 탄생석인 아쿠아마린은");
+            masegeLabel2 = new JLabel("Black, Rose pink, Burgundy color와 함께 매치해보세요.");
+        }
+        if (stones[3].equals(Arr)) {
+            masegeLabel1 = new JLabel("선택하신 4월 탄생석인 다이아몬드는");
+            masegeLabel2 = new JLabel("Black, Rose pink, Burgundy color와 함께 매치해보세요.");
+        }
+        if (stones[4].equals(Arr)) masegeLabel1 = new JLabel("선택하신 5월 탄생석인 에메랄드는");
+        if (stones[5].equals(Arr)) masegeLabel1 = new JLabel("선택하신 6월 탄생석인 진주는");
+        if (stones[6].equals(Arr)) masegeLabel1 = new JLabel("선택하신 7월 탄생석인 루비는");
+        if (stones[7].equals(Arr)) masegeLabel1 = new JLabel("선택하신 8월 탄생석인 페리도트는");
+        if (stones[8].equals(Arr)) masegeLabel1 = new JLabel("선택하신 9월 탄생석인 사파이어는");
+        if (stones[9].equals(Arr)) masegeLabel1 = new JLabel("선택하신 10월 탄생석인 오팔은");
+        if (stones[10].equals(Arr)) masegeLabel1 = new JLabel("선택하신 11월 탄생석인 토파즈는");
+        if (stones[11].equals(Arr)) masegeLabel1 = new JLabel("선택하신 12월 탄생석인 터키석은");
+
+        masegeLabel1.setFont(new Font("돋움", Font.PLAIN, 20));
+        masegeLabel1.setForeground(Color.black);
+        masegeLabel1.setBounds(200, 320, 1000, 200);
+        mainPanel.add(masegeLabel1);
+
+        masegeLabel2.setFont(new Font("돋움", Font.PLAIN, 20));
+        masegeLabel2.setForeground(Color.black);
+        masegeLabel2.setBounds(200, 380, 1000, 200);
+        mainPanel.add(masegeLabel2);
+
+
+        //선택한 월에 따라 변경되는 추천 사진
+        if (stones[0].equals(Arr)) lookImage = beforeLookImage[0].getImage();
+        if (stones[1].equals(Arr)) lookImage = beforeLookImage[1].getImage();
+        if (stones[2].equals(Arr)) lookImage = beforeLookImage[2].getImage();
+        if (stones[3].equals(Arr)) lookImage = beforeLookImage[3].getImage();
+        if (stones[4].equals(Arr)) lookImage = beforeLookImage[4].getImage();
+        if (stones[5].equals(Arr)) lookImage = beforeLookImage[5].getImage();
+        if (stones[6].equals(Arr)) lookImage = beforeLookImage[6].getImage();
+        if (stones[7].equals(Arr)) lookImage = beforeLookImage[7].getImage();
+        if (stones[8].equals(Arr)) lookImage = beforeLookImage[8].getImage();
+        if (stones[9].equals(Arr)) lookImage = beforeLookImage[9].getImage();
+        if (stones[10].equals(Arr)) lookImage = beforeLookImage[10].getImage();
+        if (stones[11].equals(Arr)) lookImage = beforeLookImage[11].getImage();
+
+        //이미지 배율 강제 조정
+        changeLookImage = lookImage.getScaledInstance(500, 750, Image.SCALE_SMOOTH);
+        afterLookImage = new ImageIcon(changeLookImage);
+        lookLabel = new JLabel(afterLookImage);
+        lookLabel.setBounds(750, 100, 500, 750);
+        mainPanel.add(lookLabel);
+
+        mainFrame.add(mainPanel);
+        setDefaultCloseOperation(mainFrame.EXIT_ON_CLOSE);
+        mainFrame.setVisible(true);
+
+
     }
+
+}
+
+
 
 
