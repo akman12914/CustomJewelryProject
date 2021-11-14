@@ -27,6 +27,8 @@ public class OrderBasket extends JFrame {
         this.finalStone = finalStone;
     }
 
+
+
     //JTextField resultTF = new JTextField("0", 20);
     JPanel TopPanel = new JPanel(new GridLayout(1, 3));
     JPanel stPanel = new JPanel(new GridLayout(2,1));
