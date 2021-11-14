@@ -5,7 +5,6 @@ import java.awt.*;import java.awt.event.ActionEvent;import java.awt.event.Action
 
 
 public class Recommend extends JFrame {
-    String n = "충돌 테스트";
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)", "루비(7월)",
             "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
     ImageIcon[] beforeLookImage = {new ImageIcon("RecommendLookImage/1월.jpg"),
@@ -94,18 +93,9 @@ public class Recommend extends JFrame {
 
 
         //선택한 월에 따라 변경되는 추천 사진
-        if (stones[0].equals(Arr)) lookImage = beforeLookImage[0].getImage();
-        if (stones[1].equals(Arr)) lookImage = beforeLookImage[1].getImage();
-        if (stones[2].equals(Arr)) lookImage = beforeLookImage[2].getImage();
-        if (stones[3].equals(Arr)) lookImage = beforeLookImage[3].getImage();
-        if (stones[4].equals(Arr)) lookImage = beforeLookImage[4].getImage();
-        if (stones[5].equals(Arr)) lookImage = beforeLookImage[5].getImage();
-        if (stones[6].equals(Arr)) lookImage = beforeLookImage[6].getImage();
-        if (stones[7].equals(Arr)) lookImage = beforeLookImage[7].getImage();
-        if (stones[8].equals(Arr)) lookImage = beforeLookImage[8].getImage();
-        if (stones[9].equals(Arr)) lookImage = beforeLookImage[9].getImage();
-        if (stones[10].equals(Arr)) lookImage = beforeLookImage[10].getImage();
-        if (stones[11].equals(Arr)) lookImage = beforeLookImage[11].getImage();
+        for(int i=0; i<12; i++) {
+            if (stones[i].equals(Arr)) lookImage = beforeLookImage[i].getImage();
+        }
 
         //이미지 배율 강제 조정
         changeLookImage = lookImage.getScaledInstance(500, 750, Image.SCALE_SMOOTH);
