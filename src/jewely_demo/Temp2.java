@@ -71,21 +71,21 @@ public class Temp2 extends JFrame{
         sizePrint.setBounds(900,147,200,35);
         mean.setBounds(1070,80,90,25);
 
-        ring0 = new ImageIcon("실버.PNG");
-        ring1 = new ImageIcon("골드.PNG");
-        ring2 = new ImageIcon("로즈골드.PNG");
-        stone0 = new ImageIcon("가넷.jpg");
-        stone1 = new ImageIcon("자수정.jpg");
-        stone2 = new ImageIcon("아쿠아마린.jpg");
-        stone3 = new ImageIcon("다이아몬드.jpg");
-        stone4 = new ImageIcon("에메랄드.jpg");
-        stone5 = new ImageIcon("진주.jpg");
-        stone6 = new ImageIcon("루비.jpg");
-        stone7 = new ImageIcon("페리도트.jpg");
-        stone8 = new ImageIcon("사파이어.jpg");
-        stone9 = new ImageIcon("오팔.jpg");
-        stone10 = new ImageIcon("토파즈.jpg");
-        stone11 = new ImageIcon("터키석.jpg");
+        ring0 = new ImageIcon("RingColorImage/실버.PNG");
+        ring1 = new ImageIcon("RingColorImage/골드.PNG");
+        ring2 = new ImageIcon("RingColorImage/로즈골드.PNG");
+        stone0 = new ImageIcon("StoneImage/가넷.jpg");
+        stone1 = new ImageIcon("StoneImage/자수정.jpg");
+        stone2 = new ImageIcon("StoneImage/아쿠아마린.jpg");
+        stone3 = new ImageIcon("StoneImage/다이아몬드.jpg");
+        stone4 = new ImageIcon("StoneImage/에메랄드.jpg");
+        stone5 = new ImageIcon("StoneImage/진주.jpg");
+        stone6 = new ImageIcon("StoneImage/루비.jpg");
+        stone7 = new ImageIcon("StoneImage/페리도트.jpg");
+        stone8 = new ImageIcon("StoneImage/사파이어.jpg");
+        stone9 = new ImageIcon("StoneImage/오팔.jpg");
+        stone10 = new ImageIcon("StoneImage/토파즈.jpg");
+        stone11 = new ImageIcon("StoneImage/터키석.jpg");
 
         imageLabel.setIcon(ring0);
         stoneLabel.setIcon(stone0);
