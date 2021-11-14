@@ -7,10 +7,13 @@ import java.awt.*;import java.awt.event.ActionEvent;import java.awt.event.Action
 public class Recommend extends JFrame {
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)", "루비(7월)",
             "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
-    ImageIcon[] beforeLookImage = {new ImageIcon("Recommend/1월.jpg"), new ImageIcon("Recommend/2월.jpg"), new ImageIcon("Recommend/3월.jpg"),
-            new ImageIcon("Recommend/4월.jpg"), new ImageIcon("Recommend/5월.jpg"), new ImageIcon("Recommend/6월.jpg"),
-            new ImageIcon("Recommend/7월.jpg"), new ImageIcon("Recommend/8월.jpg"), new ImageIcon("Recommend/9월.jpg"),
-            new ImageIcon("Recommend/10월.jpg"), new ImageIcon("Recommend/11월.jpg"), new ImageIcon("Recommend/12월.jpg")};
+    ImageIcon[] beforeLookImage = {new ImageIcon("RecommendLookImage/1월.jpg"),
+            new ImageIcon("RecommendLookImage/2월.jpg"), new ImageIcon("RecommendLookImage/3월.jpg"),
+            new ImageIcon("RecommendLookImage/4월.jpg"), new ImageIcon("RecommendLookImage/5월.jpg"),
+            new ImageIcon("RecommendLookImage/6월.jpg"), new ImageIcon("RecommendLookImage/7월.jpg"),
+            new ImageIcon("RecommendLookImage/8월.jpg"), new ImageIcon("RecommendLookImage/9월.jpg"),
+            new ImageIcon("RecommendLookImage/10월.jpg"), new ImageIcon("RecommendLookImage/11월.jpg"),
+            new ImageIcon("RecommendLookImage/12월.jpg")};
 
     JFrame mainFrame;
     JPanel mainPanel;
