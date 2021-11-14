@@ -7,6 +7,7 @@ import java.awt.*;import java.awt.event.ActionEvent;import java.awt.event.Action
 
 
 public class Recommend extends JFrame {
+    String n = "충돌 테스트";
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)", "루비(7월)",
             "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
     ImageIcon[] beforeLookImage = {new ImageIcon("RecommendLookImage/1월.jpg"),

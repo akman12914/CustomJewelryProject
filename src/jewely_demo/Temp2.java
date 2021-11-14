@@ -47,6 +47,8 @@ public class Temp2 extends JFrame{
     RoundedButton mean = new RoundedButton("의미 보기");
     JLabel ringPrice;
     JLabel stonePrice;
+    //이미지 배율 조정
+
 
 
 
@@ -125,46 +127,77 @@ public class Temp2 extends JFrame{
             }
         });
         cbbStones.addActionListener(new ActionListener() {
+            Image img;
+            Image changeImg;
             @Override
             public void actionPerformed(ActionEvent e) {
                 String stone = cbbStones.getSelectedItem().toString();
                 stonePrint.setText("탄생석: " + stone);
                 if(stone.contentEquals(stones[0])) {
                     stoneLabel.setIcon(stone0); stonePrice.setText("탄생석 가격: 5900");
+                    img = stone0.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
+                    ImageIcon changeIcon = new ImageIcon(changeImg);
+                    stoneLabel.setIcon(changeIcon);
                 }
                 if(stone.contentEquals(stones[1])) {
                     stoneLabel.setIcon(stone1); stonePrice.setText("탄생석 가격: 2000");
+                    img = stone1.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
+
                 }
                 if(stone.contentEquals(stones[2])) {
                     stoneLabel.setIcon(stone2); stonePrice.setText("탄생석 가격: 1600");
+                    img = stone2.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                 }
                 if(stone.contentEquals(stones[3])) {
                     stoneLabel.setIcon(stone3); stonePrice.setText("탄생석 가격: 120000");
+                    img = stone3.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                 }
                 if(stone.contentEquals(stones[4])) {
                     stoneLabel.setIcon(stone4); stonePrice.setText("탄생석 가격: 2000");
+                    img = stone4.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                 }
                 if(stone.contentEquals(stones[5])) {
                     stoneLabel.setIcon(stone5); stonePrice.setText("탄생석 가격: 100000");
+                    img = stone5.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                 }
                 if(stone.contentEquals(stones[6])) {
                     stoneLabel.setIcon(stone6); stonePrice.setText("탄생석 가격: 25000");
+                    img = stone6.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                 }
                 if(stone.contentEquals(stones[7])) {
                     stoneLabel.setIcon(stone7); stonePrice.setText("탄생석 가격: 2000");
+                    img = stone7.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                 }
                 if(stone.contentEquals(stones[8])) {
                     stoneLabel.setIcon(stone8); stonePrice.setText("탄생석 가격: 6000");
+                    img = stone8.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                 }
                 if(stone.contentEquals(stones[9])) {
                     stoneLabel.setIcon(stone9); stonePrice.setText("탄생석 가격: 22700");
+                    img = stone9.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                 }
                 if(stone.contentEquals(stones[10])) {
                     stoneLabel.setIcon(stone10); stonePrice.setText("탄생석 가격: 3000");
+                    img = stone10.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                 }
                 if(stone.contentEquals(stones[11])) {
                     stoneLabel.setIcon(stone11); stonePrice.setText("탄생석 가격: 14700");
+                    img = stone11.getImage();
+                    changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                 }
+                ImageIcon changeIcon = new ImageIcon(changeImg);
+                stoneLabel.setIcon(changeIcon);
                 finalStone = stone;
             }
         });
