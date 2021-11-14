@@ -168,6 +168,8 @@ public class Temp2 extends JFrame{
                 finalStone = stone;
             }
         });
+
+
         cbbSizes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
