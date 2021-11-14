@@ -1,48 +1,28 @@
 package jewely_demo;
 
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.JToggleButton;
-import javax.swing.ListSelectionModel;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.SwingConstants;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.table.DefaultTableModel;
 
 import store.JewelryStore;
-import store.Order;
-import store.OrderManager;
 
 import java.awt.BorderLayout;
 
-import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
 import javax.swing.*;
-import store.JewelryStore;
-import store.Order;
-import store.OrderManager;
 
 public class GUIMain extends JFrame{
     static JewelryStore store = JewelryStore.getInstance();
     private static final long serialVersionUID = 1L;
     //JTextField resultTF = new JTextField("0", 20);
-    JPanel topLabel = new JPanel(new GridLayout(1, 1));
+    JPanel TopLabel = new JPanel(new GridLayout(1, 1));
     JPanel middleLabel = new JPanel(new GridLayout(2, 10));
     JPanel bottomLabel = new JPanel(new GridLayout(1, 1));
     JButton detail = new JButton("주문내역 확인");
@@ -50,10 +30,10 @@ public class GUIMain extends JFrame{
 
     public void addComponentsTopane() {
         Container pane = getContentPane();
-        topLabel.setPreferredSize(new Dimension(300, 10));
+        TopLabel.setPreferredSize(new Dimension(300, 10));
         middleLabel.setPreferredSize(new Dimension(300, 500));
         bottomLabel.setPreferredSize(new Dimension(300, 150));
-        pane.add(topLabel, BorderLayout.PAGE_START);
+        pane.add(TopLabel, BorderLayout.PAGE_START);
         pane.add(middleLabel, BorderLayout.CENTER);
         pane.add(bottomLabel, BorderLayout.PAGE_END);
 
