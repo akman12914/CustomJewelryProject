@@ -1,12 +1,6 @@
 package jewely_demo;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.ButtonGroup;
@@ -35,7 +29,6 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -47,33 +40,35 @@ import store.OrderManager;
 
 public class GUIMain extends JFrame{
     static JewelryStore store = JewelryStore.getInstance();
-
     private static final long serialVersionUID = 1L;
     //JTextField resultTF = new JTextField("0", 20);
-    JPanel topLabel = new JPanel(new GridLayout(1, 2));
-    JPanel middleLabel = new JPanel(new GridLayout(1, 2));
-    JPanel bottomLabel = new JPanel(new GridLayout(1, 2));
+    JPanel topLabel = new JPanel(new GridLayout(1, 1));
+    JPanel middleLabel = new JPanel(new GridLayout(2, 10));
+    JPanel bottomLabel = new JPanel(new GridLayout(1, 1));
     JButton detail = new JButton("주문내역 확인");
     JButton order = new JButton("주문하기");
 
     public void addComponentsTopane() {
         Container pane = getContentPane();
-        topLabel.setPreferredSize(new Dimension(300, 100));
-        middleLabel.setPreferredSize(new Dimension(300,40));
-        bottomLabel.setPreferredSize(new Dimension(300, 100));
+        topLabel.setPreferredSize(new Dimension(300, 10));
+        middleLabel.setPreferredSize(new Dimension(300, 500));
+        bottomLabel.setPreferredSize(new Dimension(300, 150));
         pane.add(topLabel, BorderLayout.PAGE_START);
         pane.add(middleLabel, BorderLayout.CENTER);
         pane.add(bottomLabel, BorderLayout.PAGE_END);
 
-        middleLabel.add(detail, BorderLayout.WEST);
-        middleLabel.add(order, BorderLayout.EAST);
+        bottomLabel.add(detail, BorderLayout.WEST);
+        bottomLabel.add(order, BorderLayout.EAST);
+        ImageIcon Img = new ImageIcon("img.png");
+        JLabel imgLabel = new JLabel(Img);
+        middleLabel.add(imgLabel);
 
         order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Ordered();
-                Ordered fram = new Ordered();
-                fram.createAndShowGUI();
+                Ordered frame = new Ordered();
+                frame.createAndShowGUI();
                 setVisible(false);
 
             }
@@ -84,20 +79,23 @@ public class GUIMain extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Detail();
-                Detail fram = new Detail();
-                fram.createAndShowGUI();
+                Detail frame = new Detail();
+                frame.createAndShowGUI();
 
             }
 
         });
 
     }
+    /*public void paint(Graphics g) {//그리는 함수
+        g.drawImage(background, 0, 0, null);//background를 그려줌
+    }*/
 
 
     void createAndShowGUI() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         addComponentsTopane();
-        setPreferredSize(new Dimension(800, 300));
+        setPreferredSize(new Dimension(1920, 1080));
         pack();
         setVisible(true);
 
@@ -134,12 +132,21 @@ public class GUIMain extends JFrame{
             pane.add(buttonStart);
             contentPane.add(pane);
 
+            buttonStart.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new Temp2();
+                    setVisible(false);
+                }
+
+            });
+
         }
 
         public void createAndShowGUI() {
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             addComponentsTopane();
-            setPreferredSize(new Dimension(800, 300));
+            setPreferredSize(new Dimension(1920, 1080));
             pack();
             setVisible(true);
         }
@@ -175,7 +182,7 @@ public class GUIMain extends JFrame{
         public void createAndShowGUI() {
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             addComponentsTopane();
-            setPreferredSize(new Dimension(800, 300));
+            setPreferredSize(new Dimension(1920, 1080));
             pack();
             setVisible(true);
         }

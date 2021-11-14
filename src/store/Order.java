@@ -10,7 +10,9 @@ public class Order extends Jewelry implements Makable{
 
     int orderId;
     String orderDate;
+    String name;
     String phonenumber;
+    String adress;
     String Lettering;
     String userId;
     boolean couple;
@@ -20,6 +22,15 @@ public class Order extends Jewelry implements Makable{
     String code;
     Order(int id) {
         this.orderId = id;
+    }
+
+    public void userRead(Scanner scan) {
+        System.out.println("이름: ");
+        name = scan.next();
+        System.out.println("번호");
+        phonenumber = scan.next();
+        System.out.println("주소:");
+        adress = scan.next();
     }
 
     @Override
@@ -41,10 +52,16 @@ public class Order extends Jewelry implements Makable{
         design = scan.next();
     }
 
+
     @Override
     public boolean matches(String kwd) {
+        if (kwd.length() == 0)
+            return true;
+        if (("" + phonenumber).equals(kwd))
+            return true;
         return false;
     }
+
 
     @Override
     public void print() {
