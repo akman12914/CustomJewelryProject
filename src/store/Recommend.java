@@ -26,7 +26,7 @@ public class Recommend extends JFrame {
     JLabel commonLabel2;
 
 
-    Recommend(String Arr) {
+    public Recommend(String Arr) {
         mainFrame = new JFrame("결제완료_추천");
         mainFrame.setSize(1920, 1280);
         mainPanel = new JPanel();
@@ -36,8 +36,6 @@ public class Recommend extends JFrame {
         mainFrame.setBackground(Color.WHITE);
         mainPanel.setBackground(Color.WHITE);
         mainPanel.setLayout(null);
-
-
 
 
         //공통으로 출력되는 글
@@ -118,9 +116,7 @@ public class Recommend extends JFrame {
 
 
     }
-
 }
-
 
 
 

@@ -11,7 +11,7 @@ import javax.swing.*;
 public class Temp2 extends JFrame{
 
     String finalColor = null;
-    String finalStone = null;
+    public String finalStone = null;
     String finalSize = null;
     String colors[] = {"실버", "골드", "로즈골드"};
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)","루비(7월)",
@@ -43,8 +43,10 @@ public class Temp2 extends JFrame{
     JLabel stonePrint;
     JComboBox<String> cbbSizes;
     JLabel sizePrint;
-    JButton decision = new JButton("선택 완료");
-    JButton mean = new JButton("의미 보기");
+    RoundedButton decision = new RoundedButton("선택 완료");
+    RoundedButton mean = new RoundedButton("의미 보기");
+    JLabel ringPrice;
+    JLabel stonePrice;
 
 
 
@@ -62,6 +64,8 @@ public class Temp2 extends JFrame{
         stonePrint = new JLabel("탄생석 : 선택되지 않음");
         cbbSizes = new JComboBox(sizes);
         sizePrint = new JLabel("사이즈(미국호수) : 선택되지 않음");
+        ringPrice = new JLabel("가격: ");
+        stonePrice = new JLabel("탄생석 가격: ");
 
         cbbRings.setBounds(800,10,80,25);
         ringPrint.setBounds(900,7,200,35);
@@ -93,7 +97,8 @@ public class Temp2 extends JFrame{
         stoneLabel.setBounds(360,10,350,310);
 
         decision.setBounds(800, 220, 100,25);
-
+        ringPrice.setBounds(800,40,80,25);
+        stonePrice.setBounds(800,115,120,25);
 
         mainPanel.add(cbbRings);
         mainPanel.add(ringPrint);
@@ -105,16 +110,17 @@ public class Temp2 extends JFrame{
         mainPanel.add(stoneLabel);
         mainPanel.add(decision);
         mainPanel.add(mean);
-
+        mainPanel.add(ringPrice);
+        mainPanel.add(stonePrice);
 
         cbbRings.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String color = cbbRings.getSelectedItem().toString();
                 ringPrint.setText("반지 색상: " + color);
-                if(color.contentEquals("실버")) imageLabel.setIcon(ring0);
-                if(color.contentEquals("골드")) imageLabel.setIcon(ring1);
-                if(color.contentEquals("로즈골드")) imageLabel.setIcon(ring2);
+                if(color.contentEquals("실버")) {imageLabel.setIcon(ring0); ringPrice.setText("가격: 15000");}
+                if(color.contentEquals("골드")) {imageLabel.setIcon(ring1); ringPrice.setText("가격: 25000");}
+                if(color.contentEquals("로즈골드")) {imageLabel.setIcon(ring2); ringPrice.setText("가격: 25000");}
                 finalColor = color;
             }
         });
@@ -123,18 +129,42 @@ public class Temp2 extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String stone = cbbStones.getSelectedItem().toString();
                 stonePrint.setText("탄생석: " + stone);
-                if(stone.contentEquals(stones[0])) stoneLabel.setIcon(stone0);
-                if(stone.contentEquals(stones[1])) stoneLabel.setIcon(stone1);
-                if(stone.contentEquals(stones[2])) stoneLabel.setIcon(stone2);
-                if(stone.contentEquals(stones[3])) stoneLabel.setIcon(stone3);
-                if(stone.contentEquals(stones[4])) stoneLabel.setIcon(stone4);
-                if(stone.contentEquals(stones[5])) stoneLabel.setIcon(stone5);
-                if(stone.contentEquals(stones[6])) stoneLabel.setIcon(stone6);
-                if(stone.contentEquals(stones[7])) stoneLabel.setIcon(stone7);
-                if(stone.contentEquals(stones[8])) stoneLabel.setIcon(stone8);
-                if(stone.contentEquals(stones[9])) stoneLabel.setIcon(stone9);
-                if(stone.contentEquals(stones[10])) stoneLabel.setIcon(stone10);
-                if(stone.contentEquals(stones[11])) stoneLabel.setIcon(stone11);
+                if(stone.contentEquals(stones[0])) {
+                    stoneLabel.setIcon(stone0); stonePrice.setText("탄생석 가격: 5900");
+                }
+                if(stone.contentEquals(stones[1])) {
+                    stoneLabel.setIcon(stone1); stonePrice.setText("탄생석 가격: 2000");
+                }
+                if(stone.contentEquals(stones[2])) {
+                    stoneLabel.setIcon(stone2); stonePrice.setText("탄생석 가격: 1600");
+                }
+                if(stone.contentEquals(stones[3])) {
+                    stoneLabel.setIcon(stone3); stonePrice.setText("탄생석 가격: 120000");
+                }
+                if(stone.contentEquals(stones[4])) {
+                    stoneLabel.setIcon(stone4); stonePrice.setText("탄생석 가격: 2000");
+                }
+                if(stone.contentEquals(stones[5])) {
+                    stoneLabel.setIcon(stone5); stonePrice.setText("탄생석 가격: 100000");
+                }
+                if(stone.contentEquals(stones[6])) {
+                    stoneLabel.setIcon(stone6); stonePrice.setText("탄생석 가격: 25000");
+                }
+                if(stone.contentEquals(stones[7])) {
+                    stoneLabel.setIcon(stone7); stonePrice.setText("탄생석 가격: 2000");
+                }
+                if(stone.contentEquals(stones[8])) {
+                    stoneLabel.setIcon(stone8); stonePrice.setText("탄생석 가격: 6000");
+                }
+                if(stone.contentEquals(stones[9])) {
+                    stoneLabel.setIcon(stone9); stonePrice.setText("탄생석 가격: 22700");
+                }
+                if(stone.contentEquals(stones[10])) {
+                    stoneLabel.setIcon(stone10); stonePrice.setText("탄생석 가격: 3000");
+                }
+                if(stone.contentEquals(stones[11])) {
+                    stoneLabel.setIcon(stone11); stonePrice.setText("탄생석 가격: 14700");
+                }
                 finalStone = stone;
             }
         });
@@ -152,6 +182,11 @@ public class Temp2 extends JFrame{
                 int result = JOptionPane.showConfirmDialog(null, "반지 색상: " + finalColor +
                                 " 탄생석: " + finalStone + " 사이즈: " + finalSize + "를 최종 선택하시겠습니까?","Confirm",
                         JOptionPane.YES_NO_OPTION);
+                if(result == JOptionPane.YES_NO_OPTION) {
+                    OrderBasket frame = new OrderBasket(finalStone);
+                    frame.createAndShowGUI();
+                    setVisible(false);
+                }
                 // YES면 다음 페이지와 연결, NO면 그냥 이 페이지
 
             }
@@ -171,9 +206,64 @@ public class Temp2 extends JFrame{
         add(mainPanel);
         setVisible(true);
     }
+    class RoundedButton extends JButton {
+        public RoundedButton() {
+            super();
+            decorate();
+        }
 
-    public static void main(String[] args) {
-        Temp2 frame = new Temp2();
+        public RoundedButton(String text) {
+            super(text);
+            decorate();
+        }
+
+        public RoundedButton(Action action) {
+            super(action);
+            decorate();
+        }
+
+        public RoundedButton(Icon icon) {
+            super(icon);
+            decorate();
+        }
+
+        public RoundedButton(String text, Icon icon) {
+            super(text, icon);
+            decorate();
+        }
+
+        protected void decorate() {
+            setBorderPainted(false);
+            setOpaque(false);
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            Color c = new Color(255, 247, 242); //배경색 결정
+            Color o = new Color(247, 99, 12); //글자색 결정
+            int width = getWidth();
+            int height = getHeight();
+            Graphics2D graphics = (Graphics2D) g;
+            graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            if (getModel().isArmed()) {
+                graphics.setColor(c.darker());
+            } else if (getModel().isRollover()) {
+                graphics.setColor(c.brighter());
+            } else {
+                graphics.setColor(c);
+            }
+            graphics.fillRoundRect(0, 0, width, height, 10, 10);
+            FontMetrics fontMetrics = graphics.getFontMetrics();
+            Rectangle stringBounds = fontMetrics.getStringBounds(this.getText(), graphics).getBounds();
+            int textX = (width - stringBounds.width) / 2;
+            int textY = (height - stringBounds.height) / 2 + fontMetrics.getAscent();
+            graphics.setColor(o);
+            graphics.setFont(getFont());
+            graphics.drawString(getText(), textX, textY);
+            graphics.dispose();
+            super.paintComponent(g);
+        }
     }
+
 
 }
