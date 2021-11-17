@@ -11,7 +11,7 @@ import javax.swing.*;
 public class Temp2 extends JFrame{
 
     String finalColor = null;
-    public String finalStone = null;
+    String finalStone = null;
     String finalSize = null;
     String colors[] = {"실버", "골드", "로즈골드"};
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)","루비(7월)",
@@ -141,6 +141,7 @@ public class Temp2 extends JFrame{
                     changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
                     ImageIcon changeIcon = new ImageIcon(changeImg);
                     stoneLabel.setIcon(changeIcon);
+
                 }
                 if(stone.contentEquals(stones[1])) {
                     stoneLabel.setIcon(stone1); stonePrice.setText("탄생석 가격: 2000");

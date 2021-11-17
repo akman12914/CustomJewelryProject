@@ -17,6 +17,8 @@ import javax.swing.border.Border;
 public class OrderBasket extends JFrame {
 
 
+    Image lookImage;
+
 
     @Serial
     private static final long serialVersionUID = 1L;
