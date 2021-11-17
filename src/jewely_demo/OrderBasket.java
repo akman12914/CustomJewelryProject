@@ -5,12 +5,9 @@ import store.Recommend;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.geom.RoundRectangle2D;
 import java.io.Serial;
 
-import java.awt.Checkbox;
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -21,8 +18,7 @@ public class OrderBasket extends JFrame {
 
 
     Image lookImage;
-    Image changeallImage;
-    ImageIcon afterallImage;
+
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -51,8 +47,7 @@ public class OrderBasket extends JFrame {
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)", "루비(7월)",
             "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
 
-    ImageIcon[] beforeallImage = {new ImageIcon("RingColorImage/실버.PNG"),
-            new ImageIcon("RingColorImage/골드.PNG"), new ImageIcon("RingColorImage/로즈골드.PNG"),
+    ImageIcon[] beforeallImage = {
             new ImageIcon("StoneImage/가넷.jpg"), new ImageIcon("StoneImage/자수정.jpg"),
             new ImageIcon("StoneImage/아쿠아마린.jpg"), new ImageIcon("StoneImage/다이아몬드.jpg"),
             new ImageIcon("StoneImage/에메랄드.jpg"), new ImageIcon("StoneImage/진주.jpg"),
@@ -71,47 +66,68 @@ public class OrderBasket extends JFrame {
     JLabel designimgLabel = new JLabel(designImg);
 
 
+
+
+
     public OrderBasket(String finalStone) {
         this.finalStone = finalStone;
 
-
         if (stones[0].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[3]);
+            stoneimgLabel = new JLabel(beforeallImage[0]);
+            lookImage = beforeallImage[0].getImage();
         }
         if (stones[1].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[4]);
+            stoneimgLabel = new JLabel(beforeallImage[1]);
+            lookImage = beforeallImage[1].getImage();
         }
         if (stones[2].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[5]);
+            stoneimgLabel = new JLabel(beforeallImage[2]);
+            lookImage = beforeallImage[2].getImage();
         }
         if (stones[3].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[6]);
+            stoneimgLabel = new JLabel(beforeallImage[3]);
+            lookImage = beforeallImage[3].getImage();
         }
         if (stones[4].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[7]);
+            stoneimgLabel = new JLabel(beforeallImage[4]);
+            lookImage = beforeallImage[4].getImage();
         }
         if (stones[5].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[8]);
+            stoneimgLabel = new JLabel(beforeallImage[5]);
+            lookImage = beforeallImage[5].getImage();
         }
         if (stones[6].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[9]);
+            stoneimgLabel = new JLabel(beforeallImage[6]);
+            lookImage = beforeallImage[6].getImage();
         }
         if (stones[7].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[10]);
+            stoneimgLabel = new JLabel(beforeallImage[7]);
+            lookImage = beforeallImage[7].getImage();
         }
         if (stones[8].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[11]);
+            stoneimgLabel = new JLabel(beforeallImage[8]);
+            lookImage = beforeallImage[8].getImage();
         }
         if (stones[9].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[12]);
+            stoneimgLabel = new JLabel(beforeallImage[9]);
+            lookImage = beforeallImage[9].getImage();
         }
         if (stones[10].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[13]);
+            stoneimgLabel = new JLabel(beforeallImage[10]);
+            lookImage = beforeallImage[10].getImage();
         }
         if (stones[11].equals(finalStone)) {
-            stoneimgLabel = new JLabel(beforeallImage[14]);
+            stoneimgLabel = new JLabel(beforeallImage[11]);
+            lookImage = beforeallImage[11].getImage();
         }
     }
+
+    Image changeImg = lookImage.getScaledInstance(450, 675, Image.SCALE_SMOOTH);
+    ImageIcon afterImg = new ImageIcon(changeImg);
+    JLabel lookLabel = new JLabel(afterImg);
+
+
+
     JLabel stonetxtLabel = new JLabel("<html>4월 다이아몬드<br>순결,고귀,용기,신념<p>120000원</html>",SwingConstants.CENTER);
     JLabel colortxtLabel = new JLabel("<html>Gold<br><p>25000원</html>",SwingConstants.CENTER);
     JLabel designtxtLabel = new JLabel("<html>Bold design<br><p>20000원</html>",SwingConstants.CENTER);
@@ -123,10 +139,15 @@ public class OrderBasket extends JFrame {
 
     Border itemborder = BorderFactory.createTitledBorder("주문목록");
     Border textborder = BorderFactory.createTitledBorder("입력목록");
-    Border stoneborder = BorderFactory.createTitledBorder("선택한 원석");
-    Border colorborder = BorderFactory.createTitledBorder("선택한 색상");
-    Border designborder = BorderFactory.createTitledBorder("선택한 디자인");
+    Border stborder = BorderFactory.createTitledBorder("선택한 원석");
+    Border coborder = BorderFactory.createTitledBorder("선택한 색상");
+    Border deborder = BorderFactory.createTitledBorder("선택한 디자인");
 
+
+
+
+
+    //이미지 배율 강제 조정
 
 
 
@@ -142,13 +163,14 @@ public class OrderBasket extends JFrame {
         pane.add(bottomPanel, BorderLayout.PAGE_END);
 
         TopPanel.setBorder(itemborder);
-        stPanel.setBorder(stoneborder);
-        coPanel.setBorder(colorborder);
-        dePanel.setBorder(designborder);
+        stPanel.setBorder(stborder);
+        coPanel.setBorder(coborder);
+        dePanel.setBorder(deborder);
         TopPanel.add(stPanel, BorderLayout.EAST);
         TopPanel.add(coPanel, BorderLayout.SOUTH);
         TopPanel.add(dePanel, BorderLayout.WEST);
-        stPanel.add(stoneimgLabel);
+        lookLabel.setBounds(780, 110, 450, 675);
+        stPanel.add(lookLabel);
         stPanel.add(stonetxtLabel);
         coPanel.add(colorimgLabel);
         coPanel.add(colortxtLabel);
