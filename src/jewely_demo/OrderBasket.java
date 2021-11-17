@@ -17,8 +17,6 @@ import javax.swing.border.Border;
 public class OrderBasket extends JFrame {
 
 
-    Image lookImage;
-
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -71,60 +69,44 @@ public class OrderBasket extends JFrame {
 
     public OrderBasket(String finalStone) {
         this.finalStone = finalStone;
-
         if (stones[0].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[0]);
-            lookImage = beforeallImage[0].getImage();
         }
         if (stones[1].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[1]);
-            lookImage = beforeallImage[1].getImage();
         }
         if (stones[2].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[2]);
-            lookImage = beforeallImage[2].getImage();
         }
         if (stones[3].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[3]);
-            lookImage = beforeallImage[3].getImage();
         }
         if (stones[4].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[4]);
-            lookImage = beforeallImage[4].getImage();
         }
         if (stones[5].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[5]);
-            lookImage = beforeallImage[5].getImage();
         }
         if (stones[6].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[6]);
-            lookImage = beforeallImage[6].getImage();
         }
         if (stones[7].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[7]);
-            lookImage = beforeallImage[7].getImage();
         }
         if (stones[8].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[8]);
-            lookImage = beforeallImage[8].getImage();
         }
         if (stones[9].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[9]);
-            lookImage = beforeallImage[9].getImage();
         }
         if (stones[10].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[10]);
-            lookImage = beforeallImage[10].getImage();
         }
         if (stones[11].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[11]);
-            lookImage = beforeallImage[11].getImage();
         }
     }
 
-    Image changeImg = lookImage.getScaledInstance(450, 675, Image.SCALE_SMOOTH);
-    ImageIcon afterImg = new ImageIcon(changeImg);
-    JLabel lookLabel = new JLabel(afterImg);
 
 
 
@@ -147,8 +129,6 @@ public class OrderBasket extends JFrame {
 
 
 
-    //이미지 배율 강제 조정
-
 
 
     public void addComponentsTopane() {
@@ -169,8 +149,7 @@ public class OrderBasket extends JFrame {
         TopPanel.add(stPanel, BorderLayout.EAST);
         TopPanel.add(coPanel, BorderLayout.SOUTH);
         TopPanel.add(dePanel, BorderLayout.WEST);
-        lookLabel.setBounds(780, 110, 450, 675);
-        stPanel.add(lookLabel);
+        stPanel.add(stoneimgLabel);
         stPanel.add(stonetxtLabel);
         coPanel.add(colorimgLabel);
         coPanel.add(colortxtLabel);
