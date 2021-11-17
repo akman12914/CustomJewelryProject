@@ -43,32 +43,39 @@ public class Recommend extends JFrame {
 
         //공통으로 출력되는 글
         commonLabel1 = new JLabel("< 주문 완료 >");
-        commonLabel1.setFont(new Font("돋움", Font.BOLD, 23));
+        commonLabel1.setFont(new Font("돋움", Font.BOLD, 22));
         commonLabel1.setForeground(Color.black);
         commonLabel1.setBounds(180, 200, 400, 200);
         mainPanel.add(commonLabel1);
 
-        commonLabel2 = new JLabel("고객님의 주문이 완료되었습니다.");
+        /*commonLabel2 = new JLabel("고객님의 주문이 완료되었습니다.");
         commonLabel2.setFont(new Font("돋움", Font.PLAIN, 20));
         commonLabel2.setForeground(Color.black);
         commonLabel2.setBounds(200, 260, 1000, 200);
-        mainPanel.add(commonLabel2);
+        mainPanel.add(commonLabel2);   */
 
 
         //선택한 월에 따라 변경되는 메세지
         if (stones[0].equals(Arr)) {
-            masegeLabel1 = new JLabel("<html>선택하신 1월 탄생석인 가넷은<br>Black, Rose pink, Burgundy color와 <p>함께 매치해보세요.</html>");
-            //masegeLabel2 = new JLabel("Black, Rose pink, Burgundy color와 함께 매치해보세요.");
+            masegeLabel1 = new JLabel("<html>한 해를 여는 1월의 탄생석 '가넷'은 진실한 우정과 충성, 불현, 진리 등을 상징하는 보석입니다." +
+                    "<br>가넷은 붉은색 이외에도 노랑, 주황, 초록, 자주, 검정색 등 다양한 색감을 자랑하는 아름다운 보석입니다.</html>");
+            masegeLabel2 = new JLabel("<html>White, Black, Rose pink, Burgundy color와 잘 어우러지며<br>" +
+                    "세련되고 우아한 무드를 주는 office look, feminine look에<br>Cobjet을 함께 매치해 보세요. :)</html>");
 
             //JLabel stonetxtLabel = new JLabel("<html>4월 다이아몬드<br>순결,고귀,용기,신념<p>120000원</html>",SwingConstants.CENTER);
         }
         if (stones[1].equals(Arr)) {
-            masegeLabel1 = new JLabel("선택하신 2월 탄생석인 자수정은");
-            masegeLabel2 = new JLabel("Black, Rose pink, Burgundy color와 함께 매치해보세요.");
+            masegeLabel1 = new JLabel("<html>보랏빛의 맑고 투명한 2월 탄생석 '자수정'은 세계 5대 보석 중 하나로써 " +
+                    "품위 있는 보석으로 인정받고 있습니다.<br>성실과 평화를 상징하는 청색과 붉은색 띄는 자수정은 '하늘과 인간을 이어주는 보석'으로 상징되기도 했습니다.</html>");
+            masegeLabel2 = new JLabel("<html>클래식한 무드로 고급스러움이 돋보이는 Gray, Skin, Black color와<br>매치함으로써" +
+                    "Cobjet과 함께 세련된 무드를 연출해 보세요. :)</html>");
         }
         if (stones[2].equals(Arr)) {
-            masegeLabel1 = new JLabel("선택하신 3월 탄생석인 아쿠아마린은");
-            masegeLabel2 = new JLabel("Black, Rose pink, Burgundy color와 함께 매치해보세요.");
+            masegeLabel1 = new JLabel("<html>'아쿠아(Aqua, 물), 마린(Marine, 바다)'<br>" +
+                    "아쿠아마린은 어두운 바다의 등불 같이 빛이나 '밤의 보석 중의 여왕'이라 불리웁니다.<br>아쿠아마린은 예부터 영원한 젊음과 행복을 상징하는 돌로," +
+                    "희망과 건강을 갖게 하는 돌이라고 알려져 있습니다.</html>");
+            masegeLabel2 = new JLabel("<html>유행 없이 언제 꺼내 착용해도 멋스러워 매 시즌 즐겨 찾는 Cobjet의 아쿠아마린을<br>" +
+                    "daily look, vacance look과 함께 매치해 보세요. :)</html>");
         }
         if (stones[3].equals(Arr)) {
             masegeLabel1 = new JLabel("선택하신 4월 탄생석인 다이아몬드는");
@@ -83,15 +90,15 @@ public class Recommend extends JFrame {
         if (stones[10].equals(Arr)) masegeLabel1 = new JLabel("선택하신 11월 탄생석인 토파즈는");
         if (stones[11].equals(Arr)) masegeLabel1 = new JLabel("선택하신 12월 탄생석인 터키석은");
 
-        masegeLabel1.setFont(new Font("돋움", Font.PLAIN, 20));
-        masegeLabel1.setForeground(Color.black);
-        masegeLabel1.setBounds(200, 320, 1000, 200);
+        masegeLabel1.setFont(new Font("돋움", Font.PLAIN, 13));
+        masegeLabel1.setForeground(Color.DARK_GRAY);
+        masegeLabel1.setBounds(180, 250, 1000, 200);
         mainPanel.add(masegeLabel1);
 
-        /*masegeLabel2.setFont(new Font("돋움", Font.PLAIN, 20));
+        masegeLabel2.setFont(new Font("돋움", Font.ITALIC, 18));
         masegeLabel2.setForeground(Color.black);
-        masegeLabel2.setBounds(200, 380, 1000, 200);
-        mainPanel.add(masegeLabel2);*/
+        masegeLabel2.setBounds(180, 310, 1000, 200);
+        mainPanel.add(masegeLabel2);
 
 
         //선택한 월에 따라 변경되는 추천 사진
@@ -100,10 +107,10 @@ public class Recommend extends JFrame {
         }
 
         //이미지 배율 강제 조정
-        changeLookImage = lookImage.getScaledInstance(500, 750, Image.SCALE_SMOOTH);
+        changeLookImage = lookImage.getScaledInstance(450, 675, Image.SCALE_SMOOTH);
         afterLookImage = new ImageIcon(changeLookImage);
         lookLabel = new JLabel(afterLookImage);
-        lookLabel.setBounds(750, 100, 500, 750);
+        lookLabel.setBounds(780, 110, 450, 675);
         mainPanel.add(lookLabel);
 
         mainFrame.add(mainPanel);
