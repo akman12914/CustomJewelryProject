@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+
 import store.JewelryStore;
 
 import java.awt.BorderLayout;
@@ -17,9 +18,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
+import java.util.ArrayList;
 
 
 import javax.swing.*;
+import store.OrderManager;
+import store.Order;
 
 public class GUIMain extends JFrame{
     static JewelryStore store = JewelryStore.getInstance();
@@ -83,6 +87,8 @@ public class GUIMain extends JFrame{
 
     public class Ordered extends JFrame{
         Ordered() {
+            ArrayList<Order> ordereduserList = new ArrayList<>();
+            String name = null;
             ImageIcon icon = new ImageIcon("start1.png");
             JPanel background = new JPanel() {
                 public void paintComponent(Graphics g) {
@@ -93,17 +99,14 @@ public class GUIMain extends JFrame{
             };
             scrollPane = new JScrollPane(background);
             setContentPane(scrollPane);
-            //Container contentPane = this.getContentPane();
-            //JPanel pane = new JPanel();
-
             JTextField textPeriod = new JTextField(5);
             JLabel labelPeriod = new JLabel("이름: ");
             labelPeriod.setForeground(Color.white);
-
+            name = textPeriod.getText();
+            //Order od = new Order(name);
             JTextField textPeriod2 = new JTextField(5);
             JLabel labelPeriod2 = new JLabel("번호 : ");
             labelPeriod2.setForeground(Color.white);
-
             JTextField textPeriod3 = new JTextField(5);
             JLabel labelPeriod3 = new JLabel("주소: ");
             labelPeriod3.setForeground(Color.white);
@@ -133,7 +136,7 @@ public class GUIMain extends JFrame{
         public void createAndShowGUI() {
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             addComponentsTopane();
-            setPreferredSize(new Dimension(1920, 1080));
+            setPreferredSize(new Dimension(1920, 1280));
             pack();
             setVisible(true);
         }

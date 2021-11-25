@@ -10,6 +10,7 @@ public class Order extends Jewelry implements Makable{
 
     int orderId;
     String orderDate;
+    String design;
     String name;
     String phonenumber;
     String adress;
@@ -20,7 +21,7 @@ public class Order extends Jewelry implements Makable{
     ArrayList<Jewelry> orderedjwelryList = new ArrayList<>();
     User user;
     String code;
-    Order(int id) {
+    public Order(int id) {
         this.orderId = id;
     }
 
@@ -37,6 +38,8 @@ public class Order extends Jewelry implements Makable{
     public void read(Scanner scan) {
         System.out.println("회원 아이디 : ");
         userId = scan.next();
+        System.out.println("디자인 : ");
+        design = scan.next();
         user = (User) JewelryStore.userMgr.find(userId);
         System.out.println("주문 날짜 : ");
         orderDate = scan.next();
