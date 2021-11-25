@@ -2,6 +2,7 @@ package store;
 
 import mgr.Manager;
 
+
 public class JewelryStore extends OrderManager {
     private static JewelryStore store = null;
     private JewelryStore(){};

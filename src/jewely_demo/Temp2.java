@@ -65,6 +65,9 @@ public class Temp2 extends JFrame{
         setTitle("반지 커스텀");
         setSize(1920,1080);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        Dimension frameSize = getSize();
+        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
         mainPanel = new JPanel();
         mainPanel.setLayout(null);
         cbbRings = new JComboBox(colors);
@@ -226,9 +229,9 @@ public class Temp2 extends JFrame{
                         JOptionPane.YES_NO_OPTION);
                 // YES면 다음 페이지와 연결, NO면 그냥 이 페이지
                 if(result == JOptionPane.YES_NO_OPTION) {
-                    //Recommend rec = new Recommend(ring, finalColor, finalStone, finalCarat);
-                    OrderBasket frame = new OrderBasket(finalStone);
-                    frame.createAndShowGUI();
+                    Recommend rec = new Recommend(ring, finalColor, finalStone, finalCarat);
+                    //OrderBasket frame = new OrderBasket(finalStone);
+                   // rec.createAndShowGUI();
                     setVisible(false);
                 }
 

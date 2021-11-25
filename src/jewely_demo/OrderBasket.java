@@ -1,3 +1,4 @@
+
 package jewely_demo;
 
 import store.Recommend;
@@ -92,7 +93,7 @@ public class OrderBasket extends JFrame {
 
 
 
-    public OrderBasket(String finalStone) {
+    public OrderBasket(String finalDesign, String finalColor, String finalStone, String finalCarat) {
         this.finalStone = finalStone;
         if (stones[0].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[0]);
@@ -303,7 +304,7 @@ public class OrderBasket extends JFrame {
 
     }
 
-    void createAndShowGUI() {
+    public void createAndShowGUI() {
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         addComponentsTopane();
@@ -320,7 +321,6 @@ public class OrderBasket extends JFrame {
             if (e.getSource() == Order) {
                 JOptionPane.showMessageDialog(null, finalStone+"원석, "+finalDesign+"반지 디자인, "+finalColor+"색상의 반지주문이 완료 되었습니다.", "주문 완료",
                         JOptionPane.INFORMATION_MESSAGE);
-                Recommend rec = new Recommend(finalStone);
                 setVisible(false);
 
             }

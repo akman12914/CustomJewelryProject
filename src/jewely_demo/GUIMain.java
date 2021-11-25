@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 
 import javax.swing.*;
-import store.OrderManager;
 import store.Order;
 
 public class GUIMain extends JFrame{
