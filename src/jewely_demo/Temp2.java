@@ -63,7 +63,7 @@ public class Temp2 extends JFrame{
     public Temp2() { // public Temp2(ring)
         // this.ring = ring;
         setTitle("반지 커스텀");
-        setSize(1920,1280);
+        setSize(1920,1080);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         mainPanel = new JPanel();
         mainPanel.setLayout(null);
@@ -73,7 +73,6 @@ public class Temp2 extends JFrame{
         cbbCarats = new JComboBox(carats);
         caratPrint = new JLabel("캐럿 : 선택되지 않음");
         ringPrice = new JLabel("(가격: )");
-        stonePrice = new JLabel("(탄생석 가격: )");
         stonePrice = new JLabel("(탄생석 가격: )");
         meanPrint = new JLabel("탄생석을 선택해주세요");
         Font font = new Font("맑은 고딕",Font.PLAIN,20);
