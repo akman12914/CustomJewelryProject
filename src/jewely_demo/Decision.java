@@ -63,7 +63,7 @@ public class Decision extends JFrame{
 
 
 
-    public Decision() { // public Temp2(ring)
+    public Decision(String finalDesign) { // public Temp2(ring)
         // this.ring = ring;
         setTitle("반지 커스텀");
         setSize(1920,1080);

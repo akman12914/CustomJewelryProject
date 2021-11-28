@@ -21,6 +21,7 @@ public class GUIMain extends JFrame{
 
     String design[] = {"다이애나반지", "메리반지", "모던반지", "모어데이반지", "바코드반지", "박스큐빅반지","시계반지",
             "썸타임반지", "애프터레인반지", "월계수반지", "큐빅반지", "타임큐빅반지","투웨이반지","팅커반지","포에버반지"};
+    String finalDesign = null;
     ImageIcon design0;
     ImageIcon design1;
     ImageIcon design2;
@@ -36,7 +37,6 @@ public class GUIMain extends JFrame{
     ImageIcon design12;
     ImageIcon design13;
     ImageIcon design14;
-    public String finalDesign = null;
     public String name;
     static JewelryStore store = JewelryStore.getInstance();
     //JScrollPane scrollPane;
@@ -209,8 +209,13 @@ public class GUIMain extends JFrame{
         order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Decision();
-                setVisible(false);
+                if(finalDesign==null) {
+                    JOptionPane.showMessageDialog(null, "선택되지 않은 사항이 있습니다.",
+                            "message", JOptionPane.INFORMATION_MESSAGE);
+                }else {
+                    new Decision(finalDesign);
+                    setVisible(false);
+                }
             }
         });
 
