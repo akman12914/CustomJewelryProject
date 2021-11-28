@@ -28,7 +28,6 @@ public class OrderBasket extends JFrame {
     int finalDesignprice = 0;
     String finalCarat = null;
     String finalrSize = null;
-    String finalcprSize = null;
     int finalPrice = 0;
     Font fontstyle1 = new Font("궁서", Font.BOLD, 10);
     Font fontstyle2 = new Font("바탕", Font.BOLD, 10);
@@ -54,6 +53,7 @@ public class OrderBasket extends JFrame {
 
     ImageIcon fontimage1 = new ImageIcon("./FontImage/font1.jpg");
     ImageIcon fontimage2 = new ImageIcon("./FontImage/font2.jpg");
+    ImageIcon fontimage3 = new ImageIcon("./FontImage/font3.jpg");
 
 
     //JTextField resultTF = new JTextField("0", 20);
@@ -71,32 +71,43 @@ public class OrderBasket extends JFrame {
     JLabel designPLabel;
 
 
-    //중간에 위치한 텍스트 패널에 반지호수, 각인, 체크박스 패널을 추가(rletter는 주문자 반지각인, cprletter는 커플링 반지각인을 의미)
-    JPanel textPanel = new JPanel(new GridLayout(2, 2));
+    //중간에 위치한 텍스트 패널에 반지호수, 각인, 체크박스 패널을 추가(rletter는 주문자 반지각인)
+    JPanel textPanel = new JPanel(new GridLayout(2, 1));
     JPanel ringsizetxtPanel = new JPanel(new GridLayout(3, 1));
-    JPanel cpringsizetxtPanel = new JPanel(new GridLayout(3, 1));
     JPanel sizecomboPanel = new JPanel();
-    JPanel sizecombo2Panel = new JPanel();
     JComboBox sizecombo = new JComboBox(sizes);
-    JComboBox sizecombo2 = new JComboBox(sizes2);
 
 
-    JTextField rletterTxtField = new JTextField("각인 내용");
-    JTextField cprletterTxtField = new JTextField("커플링 각인 내용");
+//    JLabel txtLabel= new JLabel();
+    JTextField rletterTxtField = new JTextField("각인 내용",5);
+
 
 
 
     JPanel rcheckPanel = new JPanel(new GridLayout(1, 2));
     JCheckBox chk1 = new JCheckBox("내부");
     JCheckBox chk2 = new JCheckBox("외부");
+    JPanel fontPanel = new JPanel(new GridLayout(1,3));
+    JButton font1 = new JButton();
+    JButton font2 = new JButton();
+    JButton font3 = new JButton();
 
-    JPanel cprcheckPanel = new JPanel(new GridLayout(1, 2));
-    JCheckBox chk3 = new JCheckBox("커플내부");
-    JCheckBox chk4 = new JCheckBox("커플외부");
+
+    //하단에 위치한 bottomPanel에  폰트 패널과 주문 패널을 추가, 각 패널에 폰트 버튼과 주문버튼 추가
+    JPanel bottomPanel = new JPanel(new GridLayout(2, 1));
+    JPanel orderPanel = new JPanel();
+    JLabel totalpricePanel;
+    RoundedButton Order = new RoundedButton("주문하기");
 
 
-    public OrderBasket(String finalDesign, String finalColor, String finalStone, String finalCarat) {
+
+    public OrderBasket(String finalDesign, String finalColor, String finalStone, String finalCarat,int finalPrice) {
         this.finalStone = finalStone;
+        this.finalColor = finalColor;
+        this.finalCarat = finalCarat;
+        this.finalDesign = finalDesign;
+        this.finalPrice = finalPrice;
+        int total = finalPrice;
 
         stonetxtLabel = new JLabel("선택한 원석: " + this.finalStone, SwingConstants.CENTER);
         stonePLabel = new JLabel("원석 가격: " + finalStoneprice + "원", SwingConstants.CENTER);
@@ -105,6 +116,7 @@ public class OrderBasket extends JFrame {
         colorPLabel = new JLabel("반지 가격: " + finalColorprice + "원", SwingConstants.CENTER);
         designtxtLabel = new JLabel("선택한 디자인: " + this.finalDesign, SwingConstants.CENTER);
         designPLabel = new JLabel("디자인 가격: " + finalDesignprice + "원", SwingConstants.CENTER);
+        totalpricePanel = new JLabel("총 가격 : "+total, SwingConstants.CENTER);
         if (stones[0].equals(finalStone)) {
             stmeanLabel = new JLabel(means[0], SwingConstants.CENTER);
         }
@@ -159,21 +171,12 @@ public class OrderBasket extends JFrame {
 
     Border itemborder = BorderFactory.createTitledBorder("주문목록");
     Border textborder = BorderFactory.createTitledBorder("입력목록");
-    Border userborder = BorderFactory.createTitledBorder("커스텀링");
-    Border coupleborder = BorderFactory.createTitledBorder("커플링");
     Border stborder = BorderFactory.createTitledBorder("선택한 원석");
     Border coborder = BorderFactory.createTitledBorder("선택한 색상");
     Border deborder = BorderFactory.createTitledBorder("선택한 디자인");
 
 
-    JButton font1 = new JButton();
-    JButton font2 = new JButton();
 
-    //하단에 위치한 bottomPanel에  폰트 패널과 주문 패널을 추가, 각 패널에 폰트 버튼과 주문버튼 추가
-    JPanel bottomPanel = new JPanel(new GridLayout(2, 1));
-    JPanel orderPanel = new JPanel();
-    JLabel totalpricePanel = new JLabel("총 가격 : ", SwingConstants.CENTER);
-    RoundedButton Order = new RoundedButton("주문하기");
 
     //폰트 버튼 이미지 아이콘 크기 및 이미지아이콘 변환
     void fontIcon(JButton j, ImageIcon i) {
@@ -202,25 +205,17 @@ public class OrderBasket extends JFrame {
 
         //중간 패널의 반지호수 패널, 콤보 위치 및 크기 지정
         ringsizetxtPanel.setPreferredSize(new Dimension(100, 10));
-        cpringsizetxtPanel.setPreferredSize(new Dimension(100, 10));
-        sizecomboPanel.setBounds(100, 100, 150, 10);
-        sizecombo2Panel.setBounds(100, 100, 150, 10);
+        sizecomboPanel.setBounds(100, 100, 250, 10);
         sizecombo.setPreferredSize(new Dimension(200, 50));
-        sizecombo2.setPreferredSize(new Dimension(200, 50));
+
 
         //중간 패널의 레터링라벨, 레터링텍스트 필드 위치 및 크기 지정
-//        rletterLabel.setBounds(100, 100,150,50);
-//        cprletterLabel.setBounds(100, 100,150,50);
-        rletterTxtField.setBounds(100, 100, 150, 50);
-        cprletterTxtField.setBounds(100, 100, 150, 50);
+
 
         //중간 패널의 체크박스 패널, 체크박스 크기 지정
         rcheckPanel.setPreferredSize(new Dimension(50, 10));
         chk1.setPreferredSize(new Dimension(5, 5));
         chk2.setPreferredSize(new Dimension(5, 5));
-        cprcheckPanel.setPreferredSize(new Dimension(50, 10));
-        chk3.setPreferredSize(new Dimension(5, 5));
-        chk4.setPreferredSize(new Dimension(5, 5));
 
         //폰트 버튼 크기 지정
         font1.setPreferredSize(new Dimension(100, 50));
@@ -255,23 +250,31 @@ public class OrderBasket extends JFrame {
 
 
         textPanel.setBorder(textborder);
-        textPanel.add(cpringsizetxtPanel, SwingConstants.CENTER);
-        textPanel.add(ringsizetxtPanel, SwingConstants.CENTER);
-        ringsizetxtPanel.setBorder(userborder);
-        cpringsizetxtPanel.setBorder(coupleborder);
+        textPanel.add(ringsizetxtPanel);
+        textPanel.add(fontPanel);
+
         ringsizetxtPanel.add(sizecomboPanel);
-        cpringsizetxtPanel.add(sizecombo2Panel);
         sizecomboPanel.add(sizecombo);
-        sizecombo2Panel.add(sizecombo2);
+
+//        txtLabel.setBounds(100, 100,150,50);
+        rletterTxtField.setBounds(10, 10, 50, 50);
 
         ringsizetxtPanel.add(rletterTxtField);
-        cpringsizetxtPanel.add(cprletterTxtField);
+//        ringsizetxtPanel.add(txtLabel);
+
+
+        ringsizetxtPanel.add(rcheckPanel);
+        rcheckPanel.add(chk1, BorderLayout.EAST);
+        rcheckPanel.add(chk2, BorderLayout.WEST);
+
+
+        fontPanel.add(font1);
+        fontPanel.add(font2);
+        fontPanel.add(font3);
+
 
 
         bottomPanel.add(Order, BorderLayout.CENTER);
-
-        textPanel.add(font1);
-        textPanel.add(font2);
 
         bottomPanel.add(totalpricePanel);
         bottomPanel.add(orderPanel);
@@ -282,12 +285,7 @@ public class OrderBasket extends JFrame {
 
 
 
-        ringsizetxtPanel.add(rcheckPanel);
-        rcheckPanel.add(chk1, BorderLayout.EAST);
-        rcheckPanel.add(chk2, BorderLayout.WEST);
-        cpringsizetxtPanel.add(cprcheckPanel);
-        cprcheckPanel.add(chk3, BorderLayout.EAST);
-        cprcheckPanel.add(chk4, BorderLayout.WEST);
+
 
 
         ActionListener listenerpopup = new ButtonListenerpopup();
@@ -327,21 +325,7 @@ public class OrderBasket extends JFrame {
                 }
             }
         });
-        cprletterTxtField.addFocusListener(new FocusListener() {
-            @Override
-            public void focusLost(FocusEvent e) {
-                if (cprletterTxtField.getText().trim().length() == 0) {
-                    cprletterTxtField.setText("커플링 각인 내용");
-                }
-            }
 
-            @Override
-            public void focusGained(FocusEvent e) {
-                if (cprletterTxtField.getText().trim().equals("커플링 각인 내용")) {
-                    cprletterTxtField.setText("");
-                }
-            }
-        });
     }
 
 
@@ -350,26 +334,17 @@ public class OrderBasket extends JFrame {
             sizecombo.addActionListener(event -> {
                 String rsize = sizecombo.getSelectedItem().toString();
                 finalrSize = rsize;
-                if (e.getSource() == sizecombo2) {
-                    String cprsize = sizecombo2.getSelectedItem().toString();
-                    finalcprSize = cprsize;
-                    if (finalcprSize.equals("커플링 없음")) {
-
-                    }
-
-                }
 
             });
             //font1(궁서)이 눌릴때
             if (e.getSource() == font1) {
                 rletterTxtField.setFont(fontstyle1);
-                cprletterTxtField.setFont(fontstyle1);
                 String letter = rletterTxtField.getText().trim();
-                String cpletter = cprletterTxtField.getText().trim();
+
                 //font1이 눌리고 Order버튼이 눌렸을 때
                 Order.addActionListener(event -> {
                     //주문자 레터링만 있는 경우
-                    if (letter != "각인 내용" && cpletter.equals("커플링 각인 내용")) {
+                    if (!letter.equals("각인 내용") ) {
                         JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
                                 + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n각인 내용 : ["
                                 + letter + "]\n 폰트 명 : [" + fontstyle1.getFontName()
@@ -377,33 +352,24 @@ public class OrderBasket extends JFrame {
                         setVisible(true);
                     }
                     //주문자 레터링 없고 커플링 레터링만 있는 경우
-                    if (cpletter != "커플링 각인 내용" && letter.equals("각인 내용"))
+                    if (letter.equals("각인 내용"))
                         JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
-                                + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n각인 내용 : [" + cpletter + "]\n폰트 명 : [" +
-                                fontstyle1.getFontName() + "]" + "\n커플링 반지 : [반지 호수(" + finalcprSize + ")]\n 총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
+                                + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n 총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                     setVisible(true);
                     //주문자 커플링 레터링 둘 다 있을 경우
-                    if (letter != "각인 내용" && cpletter != "커플링 각인 내용") {
-                        JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
-                                + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n각인 내용 : [" + letter + "]\n폰트 명 : [" +
-                                fontstyle1.getFontName() + "]" + "\n커플링 반지 : [반지 호수(" + finalcprSize + ")]\n각인 내용 : [" + cpletter +
-                                "]\n폰트 명 : [" + fontstyle1.getFontName() + "]\n 총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
-                        setVisible(true);
 
-
-                    }
                 });
 
             }
             //font2(바탕)버튼이 눌릴 때
             if (e.getSource() == font2) {
                 rletterTxtField.setFont(fontstyle2);
-                cprletterTxtField.setFont(fontstyle2);
+
                 String letter = rletterTxtField.getText().trim();
-                String cpletter = cprletterTxtField.getText().trim();
+
                 Order.addActionListener(event -> {
                     //주문자 레터링만 있는 경우
-                    if (letter != "각인 내용" && cpletter.equals("커플링 각인 내용")) {
+                    if (!letter.equals("각인 내용")) {
                         JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
                                 + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n각인 내용 : ["
                                 + letter + "]\n 폰트 명 : [" + fontstyle2.getFontName()
@@ -411,23 +377,18 @@ public class OrderBasket extends JFrame {
                         setVisible(true);
                     }
                     //주문자 레터링 없고 커플링 레터링만 있는 경우
-                    if (cpletter != "커플링 각인 내용" && letter.equals("각인 내용"))
+                    if (letter.equals("각인 내용"))
                         JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
-                                + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n각인 내용 : [" + cpletter + "]\n폰트 명 : [" +
-                                fontstyle2.getFontName() + "]" + "\n커플링 반지 : [반지 호수(" + finalcprSize + ")]\n 총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
+                                + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                     setVisible(true);
                     //주문자 커플링 레터링 둘 다 있을 경우
-                    if (letter != "각인 내용" && cpletter != "커플링 각인 내용") {
-                        JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
-                                + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n각인 내용 : [" + letter + "]\n폰트 명 : [" +
-                                fontstyle2.getFontName() + "]" + "\n커플링 반지 : [반지 호수(" + finalcprSize + ")]\n각인 내용 : [" + cpletter +
-                                "]\n폰트 명 : [" + fontstyle2.getFontName() + "]\n 총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
-                        setVisible(true);
-                    }
+
                 });
             }
         }
     }
+
+
 
 
 
@@ -520,5 +481,6 @@ public class OrderBasket extends JFrame {
     }
 
 }
+
 
 
