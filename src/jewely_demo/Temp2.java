@@ -18,12 +18,14 @@ public class Temp2 extends JFrame{
     String colors[] = {"실버", "골드", "로즈골드"};
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)","루비(7월)",
             "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
-    String carats[] = {"0.3", "0.5", "0.7", "1.0"};
+    String carats[] = {"0.1", "0.3", "0.5", "0.7", "1.0"};
     String means[] = {"진실, 우애, 정조", "평화, 성실","젊음, 총명, 침착","사랑, 순결, 신념",
             "행운, 연애, 행복","부귀, 장수, 건강","사랑, 진실, 정조","화합, 부부애정","성실, 지혜, 자애",
             "희망, 안락, 인내","건강, 우정, 희망, 결백","성공, 번영, 불굴"};
     String price[] = {"5900", "2000", "1600", "120000", "2000", "100000", "25000", "2000", "6000", "22700", "3000",
             "14700"};
+    String finalColorPrice;
+    String finalStonePrice;
     ImageIcon ring0;
     ImageIcon ring1;
     ImageIcon ring2;
@@ -39,6 +41,7 @@ public class Temp2 extends JFrame{
     ImageIcon stone9;
     ImageIcon stone10;
     ImageIcon stone11;
+
 
     JLabel imageLabel = new JLabel();
     JLabel stoneLabel = new JLabel();
@@ -63,11 +66,8 @@ public class Temp2 extends JFrame{
     public Temp2() { // public Temp2(ring)
         // this.ring = ring;
         setTitle("반지 커스텀");
-        setSize(1920,1280);
+        setSize(1920,1080);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        Dimension frameSize = getSize();
-        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
         mainPanel = new JPanel();
         mainPanel.setLayout(null);
         cbbRings = new JComboBox(colors);
@@ -76,7 +76,6 @@ public class Temp2 extends JFrame{
         cbbCarats = new JComboBox(carats);
         caratPrint = new JLabel("캐럿 : 선택되지 않음");
         ringPrice = new JLabel("(가격: )");
-        stonePrice = new JLabel("(탄생석 가격: )");
         stonePrice = new JLabel("(탄생석 가격: )");
         meanPrint = new JLabel("탄생석을 선택해주세요");
         Font font = new Font("맑은 고딕",Font.PLAIN,20);
@@ -207,9 +206,15 @@ public class Temp2 extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String color = cbbRings.getSelectedItem().toString();
                 ringPrint.setText("반지 색상: " + color);
-                if(color.contentEquals("실버")) {imageLabel.setIcon(ring0); ringPrice.setText("(가격: 15000)");}
-                if(color.contentEquals("골드")) {imageLabel.setIcon(ring1); ringPrice.setText("(가격: 25000)");}
-                if(color.contentEquals("로즈골드")) {imageLabel.setIcon(ring2); ringPrice.setText("(가격: 25000)");}
+                if(color.contentEquals("실버")) {
+                    imageLabel.setIcon(ring0); ringPrice.setText("(가격: 15000)");
+                    finalColorPrice = "15000";}
+                if(color.contentEquals("골드")) {
+                    imageLabel.setIcon(ring1); ringPrice.setText("(가격: 25000)");
+                    finalColorPrice = "25000";}
+                if(color.contentEquals("로즈골드")) {
+                    imageLabel.setIcon(ring2); ringPrice.setText("(가격: 25000)");
+                    finalColorPrice = "25000";}
                 finalColor = color;
             }
         });
@@ -225,12 +230,14 @@ public class Temp2 extends JFrame{
         decision.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                float caratNum = Float.parseFloat(finalCarat) * 10;
+                int finalPrice = Integer.parseInt(finalColorPrice) + Integer.parseInt(finalStonePrice) * (int)caratNum;
                 int result = JOptionPane.showConfirmDialog(null, "반지 색상: " + finalColor +
-                                " 탄생석: " + finalStone + " 캐럿: " + finalCarat + "를 최종 선택하시겠습니까?","Confirm",
-                        JOptionPane.YES_NO_OPTION);
+                                " 탄생석: " + finalStone + " 캐럿: " + finalCarat + "를 최종 선택하시겠습니까?","Confirm"
+                        , JOptionPane.YES_NO_OPTION);
                 // YES면 다음 페이지와 연결, NO면 그냥 이 페이지
                 if(result == JOptionPane.YES_NO_OPTION) {
-                    Recommend rec = new Recommend(ring, finalColor, finalStone, finalCarat);
+                    Recommend rec = new Recommend(ring, finalColor, finalStone, finalCarat); // 가격도 넘겨주기
                     //OrderBasket frame = new OrderBasket(finalStone);
                    // rec.createAndShowGUI();
                     setVisible(false);
@@ -258,6 +265,7 @@ public class Temp2 extends JFrame{
         stonePrint.setText("탄생석: " + stone );
         stoneLabel.setIcon(i);
         stonePrice.setText("(탄생석 가격: " + price + ")");
+        finalStonePrice = price;
         img = i.getImage();
         changeImg = img.getScaledInstance(350,350,Image.SCALE_SMOOTH);
         ImageIcon changeIcon = new ImageIcon(changeImg);

@@ -89,12 +89,15 @@ public class OrderBasket extends JFrame {
     JLabel stoneimgLabel;
     JLabel colorimgLabel;
     JLabel designimgLabel;
+    JLabel stonetxtLabel;
+
 
 
 
 
     public OrderBasket(String finalDesign, String finalColor, String finalStone, String finalCarat) {
         this.finalStone = finalStone;
+        stonetxtLabel = new JLabel("선택한 원석: "+this.finalStone, SwingConstants.CENTER);
         if (stones[0].equals(finalStone)) {
             stoneimgLabel = new JLabel(beforeallImage[0]);
             lookImage = beforeallImage[0].getImage();
@@ -199,7 +202,7 @@ public class OrderBasket extends JFrame {
 
 
 
-    JLabel stonetxtLabel = new JLabel("선택한 원석: "+finalStone, SwingConstants.CENTER);
+    //JLabel stonetxtLabel = new JLabel("선택한 원석: "+this.finalStone, SwingConstants.CENTER);
     JLabel stonePLabel = new JLabel("원석 가격: "+finalStoneprice+"원", SwingConstants.CENTER);
     JLabel colortxtLabel = new JLabel("선택한 반지 색상: "+finalColor, SwingConstants.CENTER);
     JLabel colorPLabel = new JLabel("반지 가격: "+finalColorprice+"원", SwingConstants.CENTER);
