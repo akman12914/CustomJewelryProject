@@ -26,10 +26,10 @@ public class OrderBasket extends JFrame {
     String finalCarat = null;
     String finalrSize = null;
     int finalPrice = 0;
-    Font fontstyle1 = new Font("궁서", Font.BOLD, 10);
-    Font fontstyle2 = new Font("바탕", Font.BOLD, 10);
-    String font1name = fontstyle1.getFontName();
-    String font2name = fontstyle2.getFontName();
+    Font fontstyle1 = new Font("궁서", Font.BOLD, 30);
+    Font fontstyle2 = new Font("바탕", Font.BOLD, 30);
+    Font fontstyle3 = new Font("굴림",Font.BOLD,30);
+
 
 
 
@@ -65,10 +65,9 @@ public class OrderBasket extends JFrame {
     JLabel stonetxtLabel;
     JLabel caratLabel;
     JLabel colortxtLabel;
-//    JLabel stonePLabel;
-//    JLabel colorPLabel;
+
     JLabel designtxtLabel;
-//    JLabel designPLabel;
+
 
 
 
@@ -94,9 +93,11 @@ public class OrderBasket extends JFrame {
 
     //하단에 위치한 bottomPanel에  폰트 패널과 주문 패널을 추가, 각 패널에 폰트 버튼과 주문버튼 추가
     JPanel bottomPanel = new JPanel(new GridLayout(2, 1));
-    JPanel orderPanel = new JPanel();
+    JPanel orderPanel = new JPanel(new GridLayout(1 ,2));
     JLabel totalpricePanel;
     RoundedButton Order = new RoundedButton("주문하기");
+    RoundedButton Main = new RoundedButton("홈으로 돌아가기");
+
 
 
     public OrderBasket(String finalDesign, String finalColor, String finalStone, String finalCarat, int finalPrice) {
@@ -247,7 +248,8 @@ public class OrderBasket extends JFrame {
 
         bottomPanel.add(totalpricePanel);
         bottomPanel.add(orderPanel);
-        orderPanel.add(Order, BorderLayout.CENTER);
+        orderPanel.add(Order, BorderLayout.EAST);
+        orderPanel.add(Main, BorderLayout.WEST);
 
         sizecombo.addActionListener(new ActionListener() {
             @Override
@@ -264,6 +266,7 @@ public class OrderBasket extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //font1(궁서)이 눌릴때
                 rletterTxtField.setFont(fontstyle1);
+
             }
         });
         font2.addActionListener(new ActionListener() {
@@ -271,26 +274,28 @@ public class OrderBasket extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 rletterTxtField.setFont(fontstyle2);
 
+
+            }
+        });
+
+        font3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rletterTxtField.setFont(fontstyle3);
             }
         });
         Order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String letter = rletterTxtField.getText().trim();
-                if (!letter.equals("각인 내용")&&font1name.equals("궁서")) {
+
+                if (!letter.equals("각인 내용")) {
                     JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
                             + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n각인 내용 : ["
-                            + letter + "]\n 폰트 명 : [" + fontstyle1.getFontName()
-                            + "]\n총 가격 :" + finalPrice, "주문 완료", JOptionPane.INFORMATION_MESSAGE);
+                            + letter + "]\n 총 가격 :" + finalPrice, "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                     setVisible(true);
                 }
-                if (!letter.equals("각인 내용")&&font2name.equals("바탕")) {
-                    JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
-                            + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n각인 내용 : ["
-                            + letter + "]\n 폰트 명 : [" + fontstyle2.getFontName()
-                            + "]\n총 가격 :" + finalPrice, "주문 완료", JOptionPane.INFORMATION_MESSAGE);
-                    setVisible(true);
-                }
+
                 if (letter.equals("각인 내용"))
                     JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
                             + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
@@ -299,12 +304,20 @@ public class OrderBasket extends JFrame {
 
             }
         });
+        Main.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GUIMain main = new GUIMain();
+                setVisible(false);
+            }
+        });
 
 
         FocusEvent();
 
         fontIcon(font1, fontimage1);
         fontIcon(font2, fontimage2);
+        fontIcon(font3, fontimage3);
 //        obFrame.add(TopPanel);
 //        obFrame.add(textPanel);
 //        obFrame.add(bottomPanel);
@@ -327,7 +340,7 @@ public class OrderBasket extends JFrame {
     void fontIcon(JButton j, ImageIcon i) {
         Image img;
         img = i.getImage();
-        Image changeImg = img.getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+        Image changeImg = img.getScaledInstance(510, 300, Image.SCALE_SMOOTH);
         ImageIcon changeIcon = new ImageIcon(changeImg);
         j.setIcon(changeIcon);
 
