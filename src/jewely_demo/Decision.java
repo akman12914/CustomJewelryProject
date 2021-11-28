@@ -84,6 +84,8 @@ public class Decision extends JFrame{
         stonePrice = new JLabel("(탄생석 가격: )");
         meanPrint = new JLabel("탄생석을 선택해주세요");
         Font font = new Font("맑은 고딕",Font.PLAIN,20);
+        jewelPanel.setBorder(BorderFactory.createEmptyBorder(10 , 10 , 30 , 230));
+
 
         cbbRings.setBounds(1000,50,180,35);
         cbbRings.setFont(font);
@@ -120,7 +122,7 @@ public class Decision extends JFrame{
         imageLabel.setBounds(50,50,350,350);
         stoneLabel.setBounds(500,50,350,350);
 
-        decision.setBounds(1500, 430, 250,50);
+        decision.setBounds(1300, 430, 250,50);
         previous.setBounds(1000,430,250,50);
         ringPrice.setBounds(1500,47,350,25);
         ringPrice.setFont(font);

@@ -307,8 +307,9 @@ public class OrderBasket extends JFrame {
         Main.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GUIMain main = new GUIMain();
                 setVisible(false);
+                GUIMain frame = new GUIMain();
+                frame.createAndShowGUI();
             }
         });
 

@@ -76,7 +76,7 @@ public class GUIMain extends JFrame{
         Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
         designPanel.setBorder(BorderFactory.createEmptyBorder(10 , 10 , 30 , 230));
-        //mainPanel = new JPanel();
+        //designPanel.setBorder(BorderFactory.createEmptyBorder(10 , 10 , 30 , 230));mainPanel = new JPanel();
         //mainPanel.setLayout(null);
         designPrint = new JLabel("반지 디자인 : 선택되지 않음");
         descriptionPrint = new JLabel("");
