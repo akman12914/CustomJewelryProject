@@ -114,8 +114,8 @@ public class Decision extends JFrame{
         imageLabel.setBounds(50,50,350,350);
         stoneLabel.setBounds(500,50,350,350);
 
-        decision.setBounds(1500, 400, 300,25);
-        previous.setBounds(1000,400,300,25);
+        decision.setBounds(1500, 430, 300,25);
+        previous.setBounds(1000,430,300,25);
         ringPrice.setBounds(1500,47,350,25);
         ringPrice.setFont(font);
         stonePrice.setBounds(1500,147,350,25);
