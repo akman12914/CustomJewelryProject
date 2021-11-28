@@ -3,7 +3,7 @@ package store;
 
 import jewely_demo.GUIMain;
 import jewely_demo.OrderBasket;
-//import jewely_demo.OrderBasket;
+import jewely_demo.Temp2;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,8 +16,9 @@ public class Recommend extends JFrame {
 
     //링 컬러 이미지 강제조정
     Image ringColorImage;
-    ImageIcon[] beforeRingColorImage = {new ImageIcon("RingColorImage/골드.png"),new ImageIcon("RingColorImage/로즈골드.png")
-                                        ,new ImageIcon("RingColorImage/실버.png")};
+    ImageIcon[] beforeRingColorImage =
+            {new ImageIcon("RingColorImage/실버.png"), new ImageIcon("RingColorImage/골드.png"),
+                    new ImageIcon("RingColorImage/로즈골드.png")};
     Image changeRingColorImage;
     ImageIcon afterRingColorImage;
 
@@ -59,7 +60,8 @@ public class Recommend extends JFrame {
     JLabel commonLabel1;
     JLabel commonLabel2;
 
-    JButton next = new JButton("다음 페이지");
+    JButton nextPage = new JButton("다음 페이지");
+    JButton returnPage = new JButton("이전 페이지");
 
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)", "루비(7월)",
             "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
@@ -69,7 +71,7 @@ public class Recommend extends JFrame {
 
     public Recommend(String finalDesign, String finalColor, String finalStone, String finalCarat) {
         mainFrame = new JFrame("결제완료_추천");
-        mainFrame.setSize(1920, 1280);
+        mainFrame.setSize(1920, 1080);
         mainPanel = new JPanel();
 
         Dimension frameSize = getSize();
@@ -80,32 +82,18 @@ public class Recommend extends JFrame {
         mainPanel.setBackground(Color.WHITE);
         mainPanel.setLayout(null);
 
-        //다음 페이지로 넘어가는 버튼
-        next.setBounds(10,10,400,100);
-        mainPanel.add(next);
-
-       next.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                OrderBasket frame = new OrderBasket(finalDesign, finalColor, finalStone, finalCarat);
-                frame.createAndShowGUI();
-                setVisible(false);
-
-            }
-        });
-
         //공통으로 출력되는 글
         commonLabel1 = new JLabel("< 주문 완료 >");
         commonLabel1.setFont(new Font("돋움", Font.BOLD, 22));
         commonLabel1.setForeground(Color.black);
-        commonLabel1.setBounds(180, 180, 400, 200);
+        commonLabel1.setBounds(170, 100, 400, 200);
         mainPanel.add(commonLabel1);
 
         //주문사항 확인(문구)
-        commonLabel2 = new JLabel(finalStone+", "+finalColor+", "+finalDesign+" 디자인으로 선택하셨습니다.");
-        commonLabel2.setFont(new Font("돋움", Font.PLAIN, 20));
+        commonLabel2 = new JLabel("<html>"+finalColor+", "+finalStone+", "+finalDesign+" 디자인으로 선택하셨습니다.</html>");
+        commonLabel2.setFont(new Font("돋움", Font.PLAIN, 17));
         commonLabel2.setForeground(Color.black);
-        commonLabel2.setBounds(180, 200, 400, 200);
+        commonLabel2.setBounds(180, 150, 500, 200);
         mainPanel.add(commonLabel2);
 
 
@@ -186,12 +174,12 @@ public class Recommend extends JFrame {
 
         masegeLabel1.setFont(new Font("돋움", Font.PLAIN, 13));
         masegeLabel1.setForeground(Color.DARK_GRAY);
-        masegeLabel1.setBounds(180, 415, 1000, 200);
+        masegeLabel1.setBounds(180, 370, 1000, 200);
         mainPanel.add(masegeLabel1);
 
         masegeLabel2.setFont(new Font("돋움", Font.ITALIC, 18));
         masegeLabel2.setForeground(Color.black);
-        masegeLabel2.setBounds(180, 475, 1000, 200);
+        masegeLabel2.setBounds(180, 430, 1000, 200);
         mainPanel.add(masegeLabel2);
 
 
@@ -212,10 +200,10 @@ public class Recommend extends JFrame {
             if(colors[i].equals(finalColor)) ringColorImage = beforeRingColorImage[i].getImage();
         }
         //링컬러 이미지 배율 강제 조정
-        changeRingColorImage = ringColorImage.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+        changeRingColorImage = ringColorImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         afterRingColorImage = new ImageIcon(changeRingColorImage);
         ringColorLabel = new JLabel(afterRingColorImage);
-        ringColorLabel.setBounds(180, 200, 200, 200);
+        ringColorLabel.setBounds(180, 310, 100, 100);
         mainPanel.add(ringColorLabel);
 
         //선택한 스톤 이미지 출력
@@ -223,11 +211,37 @@ public class Recommend extends JFrame {
             if(stones[i].equals(finalStone)) stoneImage = beforeStoneImage[i].getImage();
         }
         //스톤 이미지 배율 강제 조정
-        changeStoneImage = stoneImage.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+        changeStoneImage = stoneImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         afterStoneImage = new ImageIcon(changeStoneImage);
         stoneLabel = new JLabel(afterStoneImage);
-        stoneLabel.setBounds(380, 200, 200, 200);
+        stoneLabel.setBounds(330, 310, 100, 100);
         mainPanel.add(stoneLabel);
+
+        //다음 페이지로 넘어가는 버튼
+        nextPage.setBounds(460,640,250,50);
+        mainPanel.add(nextPage);
+
+        nextPage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                OrderBasket frame = new OrderBasket(finalDesign, finalColor, finalStone, finalCarat);
+                frame.createAndShowGUI();
+                setVisible(false);
+
+            }
+        });
+        
+        //이전 페이지로 넘어가는 버튼
+        returnPage.setBounds(180,640,250,50);
+        mainPanel.add(returnPage);
+
+        returnPage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Temp2 temp2 = new Temp2();
+                setVisible(false);
+            }
+        });
 
         mainFrame.add(mainPanel);
         mainFrame.setVisible(true);
