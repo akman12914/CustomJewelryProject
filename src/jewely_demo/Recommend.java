@@ -94,14 +94,14 @@ public class Recommend extends JFrame {
         commonLabel1 = new JLabel("< 주문 완료 >");
         commonLabel1.setFont(new Font("돋움", Font.BOLD, 22));
         commonLabel1.setForeground(Color.black);
-        commonLabel1.setBounds(450, 100, 400, 200);
+        commonLabel1.setBounds(350, 100, 400, 200);
         mainPanel.add(commonLabel1);
 
         //주문사항 확인(문구)
         commonLabel2 = new JLabel("<html>"+finalColor+", "+finalStone+", "+finalDesign+" 디자인으로 선택하셨습니다.</html>");
         commonLabel2.setFont(new Font("돋움", Font.PLAIN, 17));
         commonLabel2.setForeground(Color.black);
-        commonLabel2.setBounds(470, 150, 500, 200);
+        commonLabel2.setBounds(360, 150, 500, 200);
         mainPanel.add(commonLabel2);
 
 
@@ -182,12 +182,12 @@ public class Recommend extends JFrame {
 
         masegeLabel1.setFont(new Font("돋움", Font.PLAIN, 13));
         masegeLabel1.setForeground(Color.DARK_GRAY);
-        masegeLabel1.setBounds(460, 370, 1000, 200);
+        masegeLabel1.setBounds(360, 370, 1000, 200);
         mainPanel.add(masegeLabel1);
 
         masegeLabel2.setFont(new Font("돋움", Font.ITALIC, 18));
         masegeLabel2.setForeground(Color.black);
-        masegeLabel2.setBounds(460, 430, 1000, 200);
+        masegeLabel2.setBounds(360, 430, 1000, 200);
         mainPanel.add(masegeLabel2);
 
 
@@ -200,7 +200,7 @@ public class Recommend extends JFrame {
         changeLookImage = lookImage.getScaledInstance(450, 675, Image.SCALE_SMOOTH);
         afterLookImage = new ImageIcon(changeLookImage);
         lookLabel = new JLabel(afterLookImage);
-        lookLabel.setBounds(1060, 110, 450, 675);
+        lookLabel.setBounds(960, 110, 450, 675);
         mainPanel.add(lookLabel);
 
         //선택한 링 컬러 이미지 출력
@@ -211,7 +211,7 @@ public class Recommend extends JFrame {
         changeRingColorImage = ringColorImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         afterRingColorImage = new ImageIcon(changeRingColorImage);
         ringColorLabel = new JLabel(afterRingColorImage);
-        ringColorLabel.setBounds(460, 310, 100, 100);
+        ringColorLabel.setBounds(360, 310, 100, 100);
         mainPanel.add(ringColorLabel);
 
         //선택한 스톤 이미지 출력
@@ -222,7 +222,7 @@ public class Recommend extends JFrame {
         changeStoneImage = stoneImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         afterStoneImage = new ImageIcon(changeStoneImage);
         stoneLabel = new JLabel(afterStoneImage);
-        stoneLabel.setBounds(610, 310, 100, 100);
+        stoneLabel.setBounds(510, 310, 100, 100);
         mainPanel.add(stoneLabel);
 
         //선택한 디자인 이미지 출력
@@ -233,11 +233,11 @@ public class Recommend extends JFrame {
         changeDesignImage = designImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         afterDesignImage = new ImageIcon(changeDesignImage);
         designLabel = new JLabel(afterDesignImage);
-        designLabel.setBounds(760, 310, 100, 100);
+        designLabel.setBounds(660, 310, 100, 100);
         mainPanel.add(designLabel);
 
         //다음 페이지로 넘어가는 버튼
-        nextPage.setBounds(740,640,250,50);
+        nextPage.setBounds(640,640,250,50);
         mainPanel.add(nextPage);
 
         nextPage.addActionListener(new ActionListener() {
@@ -250,7 +250,7 @@ public class Recommend extends JFrame {
         });
         
         //이전 페이지로 넘어가는 버튼
-        returnPage.setBounds(460,640,250,50);
+        returnPage.setBounds(360,640,250,50);
         mainPanel.add(returnPage);
         
 
