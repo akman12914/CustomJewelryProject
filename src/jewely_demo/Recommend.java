@@ -244,7 +244,6 @@ public class Recommend extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 OrderBasket frame = new OrderBasket(finalDesign, finalColor, finalStone, finalCarat, finalPrice);
-                frame.createAndShowGUI();
                 setVisible(false);
 
             }
