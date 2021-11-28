@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
+import facade.DataEngineInterface;
 import store.JewelryStore;
 
 import java.awt.GridLayout;
@@ -22,6 +23,7 @@ public class GUIMain extends JFrame{
     String design[] = {"다이애나반지", "메리반지", "모던반지", "모어데이반지", "바코드반지", "박스큐빅반지","시계반지",
             "썸타임반지", "애프터레인반지", "월계수반지", "큐빅반지", "타임큐빅반지","투웨이반지","팅커반지","포에버반지"};
     String finalDesign = null;
+    String finalOrderId = null;
     ImageIcon design0;
     ImageIcon design1;
     ImageIcon design2;
@@ -38,6 +40,7 @@ public class GUIMain extends JFrame{
     ImageIcon design13;
     ImageIcon design14;
     public String name;
+    String detailId = null;
     static JewelryStore store = JewelryStore.getInstance();
     //JScrollPane scrollPane;
     ImageIcon icon = new ImageIcon("start.png");
@@ -57,6 +60,7 @@ public class GUIMain extends JFrame{
     JLabel descriptionPrint;
     JButton detail = new JButton("주문내역");
     JButton order = new JButton("보석선택");
+    JButton user = new JButton("확인");
     JTextField textPeriod;
     JTextField textPeriod2;
     JTextField textPeriod3;
@@ -95,6 +99,7 @@ public class GUIMain extends JFrame{
         designPrint.setBounds(750,450,300,35);
         designPrint.setFont(font);
         designPanel.setBounds(0,500,1920,520);
+
         detail.setBounds(1470,47,150,25);
         detail.setFont(font);
         order.setBounds(1470, 97, 150, 25);
@@ -105,6 +110,7 @@ public class GUIMain extends JFrame{
         labelPeriod.setBounds(1200,157,50,25);
         labelPeriod2.setBounds(1200,197,50,25);
         labelPeriod3.setBounds(1200,237,50,25);
+        user.setBounds(1367,277,70,25);
 
 
 
@@ -183,6 +189,7 @@ public class GUIMain extends JFrame{
         background.add(imageLabel);
         background.add(detail);
         background.add(order);
+        background.add(user);
         background.add(textPeriod);
         background.add(textPeriod2);
         background.add(textPeriod3);
@@ -206,6 +213,13 @@ public class GUIMain extends JFrame{
         design013.addActionListener(listner);
         design014.addActionListener(listner);
 
+        user.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                finalOrderId = textPeriod2.getText();
+            }
+        });
+
         order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -223,8 +237,8 @@ public class GUIMain extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                new OrderList();
-
+                Detail d = new Detail();
+                d.createAndShowGUI();
             }
 
         });
@@ -278,19 +292,38 @@ public class GUIMain extends JFrame{
 
     public class Detail extends JFrame{
         Detail() {
+
+
             Container contentPane = this.getContentPane();
             JPanel pane = new JPanel();
 
             JTextField textPeriod4 = new JTextField(5);
             JLabel labelPeriod4 = new JLabel("번호 : ");
 
+
             JButton buttonStart = new JButton("주문내역 확인");
-            buttonStart.setMnemonic('S');
+            //buttonStart.setMnemonic('S');
 
             pane.add(labelPeriod4);
             pane.add(textPeriod4);
             pane.add(buttonStart);
             contentPane.add(pane);
+
+
+            buttonStart.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    detailId = textPeriod4.getText();
+                    if(!detailId.equals(finalOrderId)) {
+                        JOptionPane.showMessageDialog(null, "주문번호가 없습니다.",
+                                "message", JOptionPane.INFORMATION_MESSAGE);
+                    }else {
+                       JewelryStore j = new JewelryStore();
+                       j.mymain();
+                    }
+                }
+            });
+
         }
         public void createAndShowGUI() {
 

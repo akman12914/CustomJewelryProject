@@ -23,7 +23,7 @@ public class RingMgr implements DataEngineInterface{
     private Manager mgr = new Manager();
     @Override
     public void readAll(String filename) {
-        mgr.readAll("song.txt", new Factory() {
+        mgr.readAll("order.txt", new Factory() {
             public Manageable create() {
                 return new Ring();
             }

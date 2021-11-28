@@ -6,7 +6,7 @@ import mgr.Manager;
 
 public class JewelryStore extends OrderManager {
     private static JewelryStore store = null;
-    private JewelryStore(){};
+    public JewelryStore(){};
     public static JewelryStore getInstance(){
         if(store ==null)
             store = new JewelryStore();
@@ -14,14 +14,11 @@ public class JewelryStore extends OrderManager {
     }
     static Manager userMgr = new Manager();
 
-    void mymain() {
+    public void mymain() {
         RingMgr engine = new RingMgr();
         engine.readAll("order.txt");
         OrderList.startGUI(engine);
     }
-    public static void main(String[] args) {
-        JewelryStore a = new JewelryStore();
-        a.mymain();
-    }
+
 
 }

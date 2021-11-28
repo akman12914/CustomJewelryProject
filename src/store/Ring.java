@@ -6,15 +6,15 @@ import mgr.Manageable;
 import java.util.Scanner;
 
 public class Ring implements Manageable, UIData {
-    // 1 디자인 골드 다이아 3
-    int orderid;
+    // 010-6307-9287 디자인 골드 다이아 3
+    String orderid;
     String design;
     String color;
     String stone;
     int size;
     int time;
     public void set(Object[] row) {
-        orderid = Integer.parseInt((String)row[0]);
+        orderid = (String)row[0];
         design = (String)row[1];
         color = (String)row[2];
         stone = (String)row[3];
@@ -22,7 +22,7 @@ public class Ring implements Manageable, UIData {
     }
     @Override
     public void read(Scanner scan) {
-        orderid = scan.nextInt();
+        orderid = scan.next();
         design = scan.next();
         color = scan.next();
         stone = scan.next();
@@ -35,7 +35,7 @@ public class Ring implements Manageable, UIData {
 
     @Override
     public boolean matches(String n) {
-        if (Integer.toString(orderid).equals(n))
+        if (orderid.equals(n))
             return true;
         if (color.contains(n))
             return true;
