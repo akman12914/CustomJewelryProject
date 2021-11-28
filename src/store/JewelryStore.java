@@ -1,5 +1,6 @@
 package store;
 
+import jewely_demo.OrderList;
 import mgr.Manager;
 
 
@@ -13,13 +14,14 @@ public class JewelryStore extends OrderManager {
     }
     static Manager userMgr = new Manager();
 
-    void run() {
-        readAll();
-        printAll();
+    void mymain() {
+        RingMgr engine = new RingMgr();
+        engine.readAll("order.txt");
+        OrderList.startGUI(engine);
     }
     public static void main(String[] args) {
-        JewelryStore my = new JewelryStore();
-        my.run();
+        JewelryStore a = new JewelryStore();
+        a.mymain();
     }
 
 }

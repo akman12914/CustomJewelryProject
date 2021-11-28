@@ -1,9 +1,9 @@
 package store;
 
-import mgr.Makable;
+import mgr.Manageable;
 import java.util.Scanner;
 
-abstract class Jewelry implements Makable{
+abstract class Jewelry implements Manageable {
     String id;
     String category;
     String color;

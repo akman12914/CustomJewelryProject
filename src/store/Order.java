@@ -3,10 +3,9 @@ package store;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import mgr.Makable;
-import mgr.Manager;
+import mgr.Manageable;
 
-public class Order extends Jewelry implements Makable{
+public class Order extends Jewelry implements Manageable {
 
     int orderId;
     String orderDate;

@@ -28,6 +28,8 @@ public class OrderBasket extends JFrame {
     int finalDesignprice = 0;
     String finalCarat = null;
     String finalrSize = null;
+    String letter;
+    String rsize;
     int finalPrice = 0;
     Font fontstyle1 = new Font("궁서", Font.BOLD, 10);
     Font fontstyle2 = new Font("바탕", Font.BOLD, 10);
@@ -280,15 +282,7 @@ public class OrderBasket extends JFrame {
         bottomPanel.add(orderPanel);
         orderPanel.add(Order, BorderLayout.CENTER);
 
-
-
-
-
-
-
-
-
-        ActionListener listenerpopup = new ButtonListenerpopup();
+        ActionListener listenerpopup = new ActionListenerButton();
 
         Order.addActionListener(listenerpopup);
         font1.addActionListener(listenerpopup);
@@ -329,17 +323,16 @@ public class OrderBasket extends JFrame {
     }
 
 
-    class ButtonListenerpopup implements ActionListener {
+    class ActionListenerButton implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             sizecombo.addActionListener(event -> {
-                String rsize = sizecombo.getSelectedItem().toString();
+                rsize = sizecombo.getSelectedItem().toString();
                 finalrSize = rsize;
-
             });
             //font1(궁서)이 눌릴때
             if (e.getSource() == font1) {
                 rletterTxtField.setFont(fontstyle1);
-                String letter = rletterTxtField.getText().trim();
+                letter = rletterTxtField.getText().trim();
 
                 //font1이 눌리고 Order버튼이 눌렸을 때
                 Order.addActionListener(event -> {
@@ -350,9 +343,7 @@ public class OrderBasket extends JFrame {
                                 + letter + "]\n 폰트 명 : [" + fontstyle1.getFontName()
                                 + "]\n총 가격 :" + finalPrice, "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                         setVisible(true);
-                    }
-                    //주문자 레터링 없고 커플링 레터링만 있는 경우
-                    if (letter.equals("각인 내용"))
+                    }else if (letter.equals("각인 내용"))
                         JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
                                 + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n 총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                     setVisible(true);
@@ -365,7 +356,7 @@ public class OrderBasket extends JFrame {
             if (e.getSource() == font2) {
                 rletterTxtField.setFont(fontstyle2);
 
-                String letter = rletterTxtField.getText().trim();
+                letter = rletterTxtField.getText().trim();
 
                 Order.addActionListener(event -> {
                     //주문자 레터링만 있는 경우
@@ -375,9 +366,7 @@ public class OrderBasket extends JFrame {
                                 + letter + "]\n 폰트 명 : [" + fontstyle2.getFontName()
                                 + "]\n총 가격 :" + finalPrice, "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                         setVisible(true);
-                    }
-                    //주문자 레터링 없고 커플링 레터링만 있는 경우
-                    if (letter.equals("각인 내용"))
+                    }else if (letter.equals("각인 내용"))
                         JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
                                 + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                     setVisible(true);

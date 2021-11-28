@@ -6,41 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Manager<T extends Makable>{
-    ArrayList<T> mList = new ArrayList<>();
-    Scanner scan = new Scanner(System.in);
-
-    public void readAll(String filename, Factory<T> fac) {
+public class Manager{
+    public ArrayList<Manageable> mList = new ArrayList<>();
+    public Manageable find(String kwd) {
+        for (Manageable m: mList)
+            if (m.matches(kwd))
+                return m;
+        return null;
+    }
+    public void readAll(String filename, Factory fac) {
         Scanner filein = openFile(filename);
-        T m = null;
+        Manageable m = null;
         while (filein.hasNext()) {
-            m = (T) fac.create();
+            m = fac.create();
             m.read(filein);
             mList.add(m);
         }
         filein.close();
     }
 
-    public T find(String kwd) {
-        for (T m : mList) {
-            if (m.matches(kwd))
-                return m;
-        }
-        return null;
-    }
-
     public void printAll() {
-        for (T m : mList) {
+        for (Manageable m : mList) {
             m.print();
         }
-    }
-
-    public List<T> findAll(String kwd) {
-        List<T> results = new ArrayList<>();
-        for (T m: mList)
-            if (m.matches(kwd))
-                results.add(m);
-        return results;
     }
     public void search(Scanner keyScanner) {
         String kwd = null;
@@ -49,27 +37,31 @@ public class Manager<T extends Makable>{
             kwd = keyScanner.next();
             if (kwd.equals("end"))
                 break;
-            for (T m : mList) {
+            for (Manageable m : mList) {
                 if (m.matches(kwd))
                     m.print();
             }
         }
     }
+    public List<Manageable> findAll(String kwd) {
+        List<Manageable> result = new ArrayList<>();
+        for (Manageable m : mList) {
+            if (m.matches(kwd))
+                result.add(m);
+        }
+        return result;
+    }
 
-
-    static Scanner openFile(String filename) {
+    public Scanner openFile(String filename) {
         Scanner filein = null;
         try {
             filein = new Scanner(new File(filename));
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("파일 입력 오류");
+        } catch (Exception e) {
+            System.out.println(filename + ": 파일 없음");
             System.exit(0);
         }
         return filein;
     }
-
-
 
 
 }

@@ -223,9 +223,7 @@ public class GUIMain extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Detail();
-                Detail frame = new Detail();
-                frame.createAndShowGUI();
+                new OrderList();
 
             }
 

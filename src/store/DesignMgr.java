@@ -1,7 +1,7 @@
 package store;
 
 import mgr.Data;
-import mgr.Makable;
+import mgr.Manageable;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class DesignMgr implements Data {
     }
 
     @Override
-    public List<Makable> search(String kwd) {
+    public List<Manageable> search(String kwd) {
         return null;
     }
 
