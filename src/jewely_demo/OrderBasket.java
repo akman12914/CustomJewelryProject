@@ -402,8 +402,8 @@ public class OrderBasket extends JFrame {
 
         @Override
         protected void paintComponent(Graphics g) {
-            Color c = new Color(255, 247, 242); //배경색 결정
-            Color o = new Color(50, 50, 112); //글자색 결정
+            Color c = new Color(38, 48, 58); //배경색 결정
+            Color o = new Color(250, 250, 250); //글자색 결정
             int width = getWidth();
             int height = getHeight();
             Graphics2D graphics = (Graphics2D) g;
