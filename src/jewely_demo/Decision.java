@@ -1,6 +1,6 @@
 package jewely_demo;
 
-import store.Recommend;
+import jewely_demo.Recommend;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

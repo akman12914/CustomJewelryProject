@@ -1,5 +1,5 @@
 
-package store;
+package jewely_demo;
 
 import jewely_demo.OrderBasket;
 import jewely_demo.Decision;
@@ -59,8 +59,8 @@ public class Recommend extends JFrame {
     JLabel commonLabel1;
     JLabel commonLabel2;
 
-    JButton nextPage = new JButton("다음 페이지");
-    JButton returnPage = new JButton("이전 페이지");
+    RoundedButton1 nextPage = new RoundedButton1("다음 페이지");
+    RoundedButton1 returnPage = new RoundedButton1("이전 페이지");
 
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)", "루비(7월)",
             "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
@@ -249,4 +249,63 @@ public class Recommend extends JFrame {
 
 
     }
+    class RoundedButton1 extends JButton {
+        public RoundedButton1() {
+            super();
+            decorate();
+        }
+
+        public RoundedButton1(String text) {
+            super(text);
+            decorate();
+        }
+
+        public RoundedButton1(Action action) {
+            super(action);
+            decorate();
+        }
+
+        public RoundedButton1(Icon icon) {
+            super(icon);
+            decorate();
+        }
+
+        public RoundedButton1(String text, Icon icon) {
+            super(text, icon);
+            decorate();
+        }
+
+        protected void decorate() {
+            setBorderPainted(false);
+            setOpaque(false);
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            Color c = new Color(255, 247, 242); //배경색 결정
+            Color o = new Color(247, 99, 12); //글자색 결정
+            int width = getWidth();
+            int height = getHeight();
+            Graphics2D graphics = (Graphics2D) g;
+            graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            if (getModel().isArmed()) {
+                graphics.setColor(c.darker());
+            } else if (getModel().isRollover()) {
+                graphics.setColor(c.brighter());
+            } else {
+                graphics.setColor(c);
+            }
+            graphics.fillRoundRect(0, 0, width, height, 10, 10);
+            FontMetrics fontMetrics = graphics.getFontMetrics();
+            Rectangle stringBounds = fontMetrics.getStringBounds(this.getText(), graphics).getBounds();
+            int textX = (width - stringBounds.width) / 2;
+            int textY = (height - stringBounds.height) / 2 + fontMetrics.getAscent();
+            graphics.setColor(o);
+            graphics.setFont(getFont());
+            graphics.drawString(getText(), textX, textY);
+            graphics.dispose();
+            super.paintComponent(g);
+        }
+    }
+
 }
