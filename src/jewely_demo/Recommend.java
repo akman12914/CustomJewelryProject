@@ -34,7 +34,14 @@ public class Recommend extends JFrame {
 
     //디자인 이미지 강제조정
     Image designImage;
-    ImageIcon beforeDesignImage;
+    ImageIcon[] beforeDesignImage = {new ImageIcon("RingDesignImage/다이애나반지.jpg"),new ImageIcon("RingDesignImage/메리반지.jpg"),
+            new ImageIcon("RingDesignImage/모던반지.jpg"),new ImageIcon("RingDesignImage/모어데이반지.jpg"),
+            new ImageIcon("RingDesignImage/바코드반지.jpg"),new ImageIcon("RingDesignImage/박스큐빅반지.jpg"),
+            new ImageIcon("RingDesignImage/시계반지.jpg"),new ImageIcon("RingDesignImage/썸타임반지.jpg"),
+            new ImageIcon("RingDesignImage/애프터레인반지.jpg"),new ImageIcon("RingDesignImage/원밸리반지.jpg"),
+            new ImageIcon("RingDesignImage/월계수반지.jpg"),new ImageIcon("RingDesignImage/큐빅반지.jpg"),
+            new ImageIcon("RingDesignImage/타임큐빅반지.jpg"),new ImageIcon("RingDesignImage/투웨이반지.jpg"),
+            new ImageIcon("RingDesignImage/팅커반지.jpg")};
     Image changeDesignImage;
     ImageIcon afterDesignImage;
 
@@ -65,10 +72,13 @@ public class Recommend extends JFrame {
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)", "루비(7월)",
             "페리도트(8월)", "사파이어(9월)", "오팔(10월)", "토파즈(11월)", "터키석(12월)"};
     String colors[] = {"실버", "골드", "로즈골드"};
+    String design[] = {"다이애나반지","메리반지","모던반지","모어데이반지","바코드반지","박스큐빅반지","시계반지","썸타임반지","애프터레인반지",
+    "원밸리반지","월계수반지","큐빅반지","타임큐빅반지","투웨이반지","팅커반지"};
 
 
 
-    public Recommend(String finalDesign, String finalColor, String finalStone, String finalCarat) {
+
+    public Recommend(String finalDesign, String finalColor, String finalStone, String finalCarat, int finalPrice) {
         mainFrame = new JFrame("결제완료_추천");
         mainFrame.setSize(1920, 1080);
         mainPanel = new JPanel();
@@ -216,6 +226,17 @@ public class Recommend extends JFrame {
         stoneLabel.setBounds(330, 310, 100, 100);
         mainPanel.add(stoneLabel);
 
+        //선택한 디자인 이미지 출력
+        for(int i=0; i<15;i++){
+            if(design[i].equals(finalDesign)) designImage = beforeDesignImage[i].getImage();
+        }
+        //디자인 이미지 배율 강제 조정
+        changeDesignImage = designImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        afterDesignImage = new ImageIcon(changeDesignImage);
+        designLabel = new JLabel(afterDesignImage);
+        designLabel.setBounds(480, 310, 100, 100);
+        mainPanel.add(designLabel);
+
         //다음 페이지로 넘어가는 버튼
         nextPage.setBounds(460,640,250,50);
         mainPanel.add(nextPage);
@@ -223,7 +244,7 @@ public class Recommend extends JFrame {
         nextPage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                OrderBasket frame = new OrderBasket(finalDesign, finalColor, finalStone, finalCarat);
+                OrderBasket frame = new OrderBasket(finalDesign, finalColor, finalStone, finalCarat, finalPrice);
                 frame.createAndShowGUI();
                 setVisible(false);
 
