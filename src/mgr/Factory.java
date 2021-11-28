@@ -1,5 +1,5 @@
 package mgr;
 
-public interface Factory {
-    public Makable create();
+public interface Factory<T> {
+    Makable create();
 }

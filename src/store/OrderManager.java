@@ -7,6 +7,12 @@ import mgr.Manager;
 public class OrderManager extends Manager{
     Scanner scan = new Scanner(System.in);
     ArrayList<Order> orderedjewelryList = new ArrayList<>();
+    private static final String[] labels = {"주문자이름","디자인", "반지색", "탄생석", "캐럿", "호수", "주문시각"};
+
+    public String[] getColumnNames() {
+        return labels;
+    }
+
     Order od = null;
 
     void readAll(){
@@ -36,6 +42,8 @@ public class OrderManager extends Manager{
             }
         }
 
+
+
     }
 
 
@@ -44,4 +52,5 @@ public class OrderManager extends Manager{
             od.print();
         }
     }
+
 }
