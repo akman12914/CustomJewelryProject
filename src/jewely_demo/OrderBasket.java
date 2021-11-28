@@ -76,11 +76,14 @@ public class OrderBasket extends JFrame {
     //중간에 위치한 텍스트 패널에 반지호수, 각인, 체크박스 패널을 추가(rletter는 주문자 반지각인)
     JPanel textPanel = new JPanel(new GridLayout(2, 1));
     JPanel ringsizetxtPanel = new JPanel(new GridLayout(3, 1));
+    JPanel cpringsizetxtPanel = new JPanel(new GridLayout(3, 1));
     JPanel sizecomboPanel = new JPanel();
+    JPanel sizecombo2Panel = new JPanel();
     JComboBox sizecombo = new JComboBox(sizes);
+    JComboBox sizecombo2 = new JComboBox(sizes2);
 
 
-//    JLabel txtLabel= new JLabel();
+    //    JLabel txtLabel= new JLabel();
     JTextField rletterTxtField = new JTextField("각인 내용",5);
 
 
@@ -470,6 +473,7 @@ public class OrderBasket extends JFrame {
     }
 
 }
+
 
 
 

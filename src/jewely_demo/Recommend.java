@@ -1,8 +1,6 @@
 
 package jewely_demo;
 
-import jewely_demo.OrderBasket;
-import jewely_demo.Decision;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -272,17 +270,17 @@ public class Recommend extends JFrame {
     }
 
     class RoundedButton1 extends JButton {
-        public RoundedButton1() {
+       /* public RoundedButton1() {
             super();
             decorate();
-        }
+        }*/
 
         public RoundedButton1(String text) {
             super(text);
             decorate();
         }
 
-        public RoundedButton1(Action action) {
+        /*public RoundedButton1(Action action) {
             super(action);
             decorate();
         }
@@ -295,7 +293,7 @@ public class Recommend extends JFrame {
         public RoundedButton1(String text, Icon icon) {
             super(text, icon);
             decorate();
-        }
+        }*/
 
         protected void decorate() {
             setBorderPainted(false);
@@ -304,8 +302,8 @@ public class Recommend extends JFrame {
 
         @Override
         protected void paintComponent(Graphics g) {
-            Color c = new Color(255, 247, 242); //배경색 결정
-            Color o = new Color(247, 99, 12); //글자색 결정
+            Color c = new Color(38, 48, 58); //배경색 결정
+            Color o = new Color(250, 250, 250); //글자색 결정
             int width = getWidth();
             int height = getHeight();
             Graphics2D graphics = (Graphics2D) g;
@@ -323,7 +321,7 @@ public class Recommend extends JFrame {
             int textX = (width - stringBounds.width) / 2;
             int textY = (height - stringBounds.height) / 2 + fontMetrics.getAscent();
             graphics.setColor(o);
-            graphics.setFont(getFont());
+            graphics.setFont(new Font("돋움", Font.BOLD, 15));
             graphics.drawString(getText(), textX, textY);
             graphics.dispose();
             super.paintComponent(g);
