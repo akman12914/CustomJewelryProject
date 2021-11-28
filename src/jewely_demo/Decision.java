@@ -54,7 +54,7 @@ public class Decision extends JFrame{
     JLabel caratPrint;
     JLabel meanPrint;
     RoundedButton decision = new RoundedButton("선택 완료");
-    RoundedButton previous = new RoundedButton("이전 반지");
+    RoundedButton previous = new RoundedButton("이전 페이지");
     JLabel ringPrice;
     JLabel stonePrice;
 
@@ -114,9 +114,8 @@ public class Decision extends JFrame{
         imageLabel.setBounds(50,50,350,350);
         stoneLabel.setBounds(500,50,350,350);
 
-        decision.setBounds(1500, 347, 350,25);
-        decision.setFont(font);
-        previous.setBounds(10,10,100,25);
+        decision.setBounds(1500, 400, 300,25);
+        previous.setBounds(1000,400,300,25);
         ringPrice.setBounds(1500,47,350,25);
         ringPrice.setFont(font);
         stonePrice.setBounds(1500,147,350,25);
@@ -230,6 +229,10 @@ public class Decision extends JFrame{
         decision.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(finalStone==null||finalColor==null|| finalCarat == null) {
+                    JOptionPane.showMessageDialog(null, "선택되지 않은 사항이 있습니다.",
+                            "message", JOptionPane.INFORMATION_MESSAGE);
+                }
                 float caratNum = Float.parseFloat(finalCarat) * 10;
                 int finalPrice = Integer.parseInt(finalColorPrice) + Integer.parseInt(finalStonePrice) * (int)caratNum;
                 int result = JOptionPane.showConfirmDialog(null, "반지 색상: " + finalColor +
