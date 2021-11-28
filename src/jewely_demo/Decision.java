@@ -24,6 +24,8 @@ public class Decision extends JFrame{
             "희망, 안락, 인내","건강, 우정, 희망, 결백","성공, 번영, 불굴"};
     String price[] = {"5900", "2000", "1600", "120000", "2000", "100000", "25000", "2000", "6000", "22700", "3000",
             "14700"};
+    String size[] = {"4호", "5호", "6호", "7호", "8호", "9호", "10호", "11호"};
+
     String finalColorPrice;
     String finalStonePrice;
     ImageIcon ring0;
@@ -51,12 +53,14 @@ public class Decision extends JFrame{
     JLabel ringPrint;
     JLabel stonePrint;
     JComboBox<String> cbbCarats;
+    JComboBox<String> cbbSizes;
     JLabel caratPrint;
     JLabel meanPrint;
     RoundedButton decision = new RoundedButton("선택 완료");
     RoundedButton previous = new RoundedButton("이전 페이지");
     JLabel ringPrice;
     JLabel stonePrice;
+
 
 
 
@@ -71,6 +75,7 @@ public class Decision extends JFrame{
         mainPanel = new JPanel();
         mainPanel.setLayout(null);
         cbbRings = new JComboBox(colors);
+        cbbSizes = new JComboBox(size);
         ringPrint = new JLabel("반지 색상: 선택되지 않음");
         stonePrint = new JLabel("탄생석 : 선택되지 않음");
         cbbCarats = new JComboBox(carats);
@@ -89,6 +94,7 @@ public class Decision extends JFrame{
         cbbCarats.setBounds(1000, 350,180,35);
         cbbCarats.setFont(font);
         caratPrint.setBounds(1200,347,220,35);
+        cbbSizes.setBounds(1500, 347, 180,35);
         meanPrint.setBounds(1000,250,500,35);
         meanPrint.setFont(font);
         caratPrint.setFont(font);
@@ -114,8 +120,8 @@ public class Decision extends JFrame{
         imageLabel.setBounds(50,50,350,350);
         stoneLabel.setBounds(500,50,350,350);
 
-        decision.setBounds(1500, 430, 300,25);
-        previous.setBounds(1000,430,300,25);
+        decision.setBounds(1500, 430, 250,50);
+        previous.setBounds(1000,430,250,50);
         ringPrice.setBounds(1500,47,350,25);
         ringPrice.setFont(font);
         stonePrice.setBounds(1500,147,350,25);
@@ -375,8 +381,8 @@ public class Decision extends JFrame{
 
         @Override
         protected void paintComponent(Graphics g) {
-            Color c = new Color(255, 247, 242); //배경색 결정
-            Color o = new Color(247, 99, 12); //글자색 결정
+            Color c = new Color(38, 48, 58); //배경색 결정
+            Color o = new Color(230, 230, 230); //글자색 결정
             int width = getWidth();
             int height = getHeight();
             Graphics2D graphics = (Graphics2D) g;
@@ -394,12 +400,11 @@ public class Decision extends JFrame{
             int textX = (width - stringBounds.width) / 2;
             int textY = (height - stringBounds.height) / 2 + fontMetrics.getAscent();
             graphics.setColor(o);
-            graphics.setFont(getFont());
+            graphics.setFont(new Font("돋움", Font.BOLD, 15));
             graphics.drawString(getText(), textX, textY);
             graphics.dispose();
             super.paintComponent(g);
         }
     }
-
 
 }

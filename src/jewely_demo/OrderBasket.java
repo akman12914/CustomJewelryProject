@@ -11,6 +11,9 @@ import java.io.Serial;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+// import store.RingMgr;    import store.JewelryStore; RingMgr ringmgr = new RingMgr<>();
+// ringmgr.addNewItem(desing, color, stone, carat, size);
+
 
 
 
@@ -329,8 +332,9 @@ public class OrderBasket extends JFrame {
     class ActionListenerButton implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             sizecombo.addActionListener(event -> {
-                rsize = sizecombo.getSelectedItem().toString();
+                String rsize = sizecombo.getSelectedItem().toString();
                 finalrSize = rsize;
+
             });
             //font1(궁서)이 눌릴때
             if (e.getSource() == font1) {
