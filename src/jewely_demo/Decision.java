@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class Temp2 extends JFrame{
+public class Decision extends JFrame{
 
     String finalColor = null;
     public String finalStone = null;
@@ -63,7 +63,7 @@ public class Temp2 extends JFrame{
 
 
 
-    public Temp2() { // public Temp2(ring)
+    public Decision() { // public Temp2(ring)
         // this.ring = ring;
         setTitle("반지 커스텀");
         setSize(1920,1080);

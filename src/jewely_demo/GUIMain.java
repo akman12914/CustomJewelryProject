@@ -5,24 +5,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 
 import store.JewelryStore;
-
-import java.awt.BorderLayout;
 
 import java.awt.GridLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
-import java.util.ArrayList;
 
 
 import javax.swing.*;
-import store.Order;
 
 public class GUIMain extends JFrame{
 
@@ -216,7 +209,7 @@ public class GUIMain extends JFrame{
         order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Temp2();
+                new Decision();
                 setVisible(false);
             }
         });

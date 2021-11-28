@@ -1,9 +1,8 @@
 
 package store;
 
-import jewely_demo.GUIMain;
 import jewely_demo.OrderBasket;
-import jewely_demo.Temp2;
+import jewely_demo.Decision;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -238,7 +237,7 @@ public class Recommend extends JFrame {
         returnPage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Temp2 temp2 = new Temp2();
+                Decision temp2 = new Decision();
                 setVisible(false);
             }
         });
