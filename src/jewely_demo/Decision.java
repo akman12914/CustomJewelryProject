@@ -13,7 +13,7 @@ public class Decision extends JFrame{
 
     String finalColor = null;
     public String finalStone = null;
-    String ring = null;
+    String finalDesign = null;
     String finalCarat = null;
     String colors[] = {"실버", "골드", "로즈골드"};
     String stones[] = {"가넷(1월)", "자수정(2월)", "아쿠아마린(3월)", "다이아몬드(4월)", "에메랄드(5월)", "진주(6월)","루비(7월)",
@@ -63,8 +63,8 @@ public class Decision extends JFrame{
 
 
 
-    public Decision(String finalDesign) { // public Temp2(ring)
-        // this.ring = ring;
+    public Decision(String finalDesign) {
+        this.finalDesign = finalDesign;
         setTitle("반지 커스텀");
         setSize(1920,1080);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -240,9 +240,7 @@ public class Decision extends JFrame{
                         , JOptionPane.YES_NO_OPTION);
                 // YES면 다음 페이지와 연결, NO면 그냥 이 페이지
                 if(result == JOptionPane.YES_NO_OPTION) {
-                    Recommend rec = new Recommend(ring, finalColor, finalStone, finalCarat); // 가격도 넘겨주기
-                    //OrderBasket frame = new OrderBasket(finalStone);
-                   // rec.createAndShowGUI();
+                    Recommend rec = new Recommend(finalDesign, finalColor, finalStone, finalCarat, finalPrice);
                     setVisible(false);
                 }
 
