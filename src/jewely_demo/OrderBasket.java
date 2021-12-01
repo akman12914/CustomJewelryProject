@@ -14,7 +14,7 @@ import javax.swing.border.Border;
 
 
 public class OrderBasket extends JFrame {
-//    JFrame obFrame;
+
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -29,6 +29,10 @@ public class OrderBasket extends JFrame {
     Font fontstyle1 = new Font("궁서", Font.BOLD, 30);
     Font fontstyle2 = new Font("바탕", Font.BOLD, 30);
     Font fontstyle3 = new Font("굴림",Font.BOLD,30);
+    Font fontstyle4 = new Font("맑은 고딕",Font.BOLD,30);
+    Font fontstyle5 = new Font("굵은안상수체",Font.BOLD,30);
+    Font fontstyle6 = new Font("한컴 쿨재즈 B",Font.BOLD,30);
+
 
 
 
@@ -54,14 +58,17 @@ public class OrderBasket extends JFrame {
     ImageIcon fontimage1 = new ImageIcon("./FontImage/font1.jpg");
     ImageIcon fontimage2 = new ImageIcon("./FontImage/font2.jpg");
     ImageIcon fontimage3 = new ImageIcon("./FontImage/font3.jpg");
+    ImageIcon fontimage4 = new ImageIcon("./FontImage/font4.jpg");
+    ImageIcon fontimage5 = new ImageIcon("./FontImage/font5.jpg");
+    ImageIcon fontimage6 = new ImageIcon("./FontImage/font6.jpg");
 
 
     //JTextField resultTF = new JTextField("0", 20);
     //상단 패널 안에 원석, 캐럿, 원석명, 가격, 색상, 색상명, 디자인, 디자인명의 패널 추가
     JPanel TopPanel = new JPanel(new GridLayout(1, 3));
-    JPanel stPanel = new JPanel(new GridLayout(4, 1));
-    JPanel coPanel = new JPanel(new GridLayout(3, 1));
-    JPanel dePanel = new JPanel(new GridLayout(3, 1));
+    JPanel stPanel = new JPanel(new GridLayout(2, 1));
+    JPanel coPanel = new JPanel(new GridLayout(1, 1));
+    JPanel dePanel = new JPanel(new GridLayout(1, 1));
     JLabel stonetxtLabel;
     JLabel caratLabel;
     JLabel colortxtLabel;
@@ -85,10 +92,13 @@ public class OrderBasket extends JFrame {
     JPanel rcheckPanel = new JPanel(new GridLayout(1, 2));
     JCheckBox chk1 = new JCheckBox("내부");
     JCheckBox chk2 = new JCheckBox("외부");
-    JPanel fontPanel = new JPanel(new GridLayout(1, 3));
+    JPanel fontPanel = new JPanel(new GridLayout(2, 3));
     JButton font1 = new JButton();
     JButton font2 = new JButton();
     JButton font3 = new JButton();
+    JButton font4 = new JButton();
+    JButton font5 = new JButton();
+    JButton font6 = new JButton();
 
 
     //하단에 위치한 bottomPanel에  폰트 패널과 주문 패널을 추가, 각 패널에 폰트 버튼과 주문버튼 추가
@@ -162,6 +172,7 @@ public class OrderBasket extends JFrame {
             stmeanLabel = new JLabel(means[11], SwingConstants.CENTER);
         }
 
+
         setTitle("basket");
         Container pane = getContentPane();
         //상단, 중간, 하단 패널 크기 지정
@@ -180,7 +191,7 @@ public class OrderBasket extends JFrame {
         sizecombo.setPreferredSize(new Dimension(200, 50));
 
 
-        //중간 패널의 레터링라벨, 레터링텍스트 필드 위치 및 크기 지정
+
 
 
         //중간 패널의 체크박스 패널, 체크박스 크기 지정
@@ -242,7 +253,9 @@ public class OrderBasket extends JFrame {
         fontPanel.add(font1);
         fontPanel.add(font2);
         fontPanel.add(font3);
-
+        fontPanel.add(font4);
+        fontPanel.add(font5);
+        fontPanel.add(font6);
 
         bottomPanel.add(Order, BorderLayout.CENTER);
 
@@ -284,6 +297,24 @@ public class OrderBasket extends JFrame {
                 rletterTxtField.setFont(fontstyle3);
             }
         });
+        font4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rletterTxtField.setFont(fontstyle4);
+            }
+        });
+        font5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rletterTxtField.setFont(fontstyle5);
+            }
+        });
+        font6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rletterTxtField.setFont(fontstyle6);
+            }
+        });
         Order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -307,7 +338,6 @@ public class OrderBasket extends JFrame {
         Main.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
                 GUIMain frame = new GUIMain();
                 frame.createAndShowGUI();
             }
@@ -319,9 +349,9 @@ public class OrderBasket extends JFrame {
         fontIcon(font1, fontimage1);
         fontIcon(font2, fontimage2);
         fontIcon(font3, fontimage3);
-//        obFrame.add(TopPanel);
-//        obFrame.add(textPanel);
-//        obFrame.add(bottomPanel);
+        fontIcon(font4, fontimage4);
+        fontIcon(font5, fontimage5);
+        fontIcon(font6, fontimage6);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(1920, 1280));
         pack();
@@ -341,7 +371,7 @@ public class OrderBasket extends JFrame {
     void fontIcon(JButton j, ImageIcon i) {
         Image img;
         img = i.getImage();
-        Image changeImg = img.getScaledInstance(510, 300, Image.SCALE_SMOOTH);
+        Image changeImg = img.getScaledInstance(510, 280, Image.SCALE_SMOOTH);
         ImageIcon changeIcon = new ImageIcon(changeImg);
         j.setIcon(changeIcon);
 
