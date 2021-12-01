@@ -128,56 +128,63 @@ public class Recommend extends JFrame {
                     "daily look, vacance look과 함께 매치해 보세요. :)</html>");
         }
         if (stones[3].equals(finalStone)) {
-            masegeLabel1 = new JLabel("선택하신 4월 탄생석인 다이아몬드는");
-            masegeLabel2 = new JLabel("Black, Rose pink, Burgundy color와 함께 매치해보세요.");
+            masegeLabel1 = new JLabel("<html>'‘여자의 수호석, 4월 다이아몬드’는 ‘정복할 수 없다’는 뜻의 그리스어 아다마스에서 유래 되었습니다. "+
+                    "<br>다이아몬드 원석을 몸에 지니고 있으면 치료효과는 물론 아름다운 피부와 싱싱한 젊음도 유지할 수 있다고 합니다.<br>" +
+                    "다이아몬드는 천연석 중 빛의 굴절률이 제일 높아 아름다운 광채를 발휘합니다.</html>");
+            masegeLabel2 = new JLabel("<html>GREEN, PINK, GRAY, BLUE color의 style에서 더 찬란한 빛을 내는 <br>" +
+                    "Cobjet 반지와 함께 봄을 가꾸어 보아요 :) </html>");
         }
         if (stones[4].equals(finalStone)) {
-            masegeLabel1 = new JLabel("<html>5월의 탄생석 '에메랄드'는 진실한 우정과 충성, 불현, 진리 등을 상징하는 보석입니다." +
-                    "<br>가넷은 붉은색 이외에도 노랑, 주황, 초록, 자주, 검정색 등 다양한 색감을 자랑하는 아름다운 보석입니다.</html>");
-            masegeLabel2 = new JLabel("<html>White, Black, Rose pink, Burgundy color와 잘 어우러지며<br>" +
-                    "세련되고 우아한 무드를 주는 office look, feminine look에<br>Cobjet을 함께 매치해 보세요. :)</html>");
+            masegeLabel1 = new JLabel("<html>5월의 탄생석 '에메랄드'는 고대 사람들에게 많은 믿음을 주었으며 동양에서는 미래를 예언하는 돌,<br>" +
+                    "서양에서는 사랑과 부활을 상징하는 돌로 여겨졌습니다. 그리스에서는 에메랄드를 미의 여신인 비너스에게 바쳤다고 합니다.</html>");
+            masegeLabel2 = new JLabel("<html>에메랄드는 DENIM, KHAKI, PEACH, GREEN, BROWN color의 style과 잘 어우러지며<br>" +
+                    "때로는 office look으로 세련되게, 때로는 daily look으로<br>" +
+                    "모던하게 매치하며 Cobjet와 만들어보아요:)</html>");
         }
         if (stones[5].equals(finalStone)){
-            masegeLabel1 = new JLabel("<html>6월의 탄생석 '진주'는 진실한 우정과 충성, 불현, 진리 등을 상징하는 보석입니다." +
-                    "<br>가넷은 붉은색 이외에도 노랑, 주황, 초록, 자주, 검정색 등 다양한 색감을 자랑하는 아름다운 보석입니다.</html>");
-            masegeLabel2 = new JLabel("<html>White, Black, Rose pink, Burgundy color와 잘 어우러지며<br>" +
-                    "세련되고 우아한 무드를 주는 office look, feminine look에<br>Cobjet을 함께 매치해 보세요. :)</html>");
+            masegeLabel1 = new JLabel("<html>“누구에게나 어울리며, 모든 옷을 소화하고, 어떤 장소와도 어울리는 보석. 그것이 바로 진주다.<br>" +
+                    "진짜든 모조품이든 최초의 데이트부터 최후 숨을 거둘 때까지 진주 목걸이야말로 몸단장을 하는데 빠뜨려서는 안 될 보석이다.”<br>" +
+                    "– 프랑스의 평론가 다리오 부인</html>");
+            masegeLabel2 = new JLabel("<html>청순, 순결, 매력을 상징하기도 하는 진주는 화이트, 블랙, 실버, 크림, 골드, 그레이 등<br>" +
+                    "색이 다양하여 모든 스타일을 제 스스로 해석하며 소화하는 신기한 보석입니다. :)</html>");
         }
         if (stones[6].equals(finalStone)) {
-            masegeLabel1 = new JLabel("<html>7월의 탄생석 '루비'는 진실한 우정과 충성, 불현, 진리 등을 상징하는 보석입니다." +
-                    "<br>가넷은 붉은색 이외에도 노랑, 주황, 초록, 자주, 검정색 등 다양한 색감을 자랑하는 아름다운 보석입니다.</html>");
-            masegeLabel2 = new JLabel("<html>White, Black, Rose pink, Burgundy color와 잘 어우러지며<br>" +
-                    "세련되고 우아한 무드를 주는 office look, feminine look에<br>Cobjet을 함께 매치해 보세요. :)</html>");
+            masegeLabel1 = new JLabel("<html>열정적인 사랑을 상징하는 루비의 어원은 라틴어의 루브럼(Rubrum), 즉 ‘빨갛다’는 의미입니다.<br>" +
+                    "한 시인이 ‘사랑의 언어를 속삭이는 여인의 입술’에 비유할 정도로 루비는 아름다운 붉은색을 자랑합니다.</html>");
+            masegeLabel2 = new JLabel("<html> 루비는 GREEN, BLACK, DEEP RED, DENIM의 color로 클래식하면서 세련된 office look과<br>" +
+                    "모던한 무드를 주는 페미닌룩으로 Cobjet와 함께 매치해 보세요:)</html>");
         }
         if (stones[7].equals(finalStone)) {
-            masegeLabel1 = new JLabel("<html>8월의 탄생석 '페리도트'는 진실한 우정과 충성, 불현, 진리 등을 상징하는 보석입니다." +
-                    "<br>가넷은 붉은색 이외에도 노랑, 주황, 초록, 자주, 검정색 등 다양한 색감을 자랑하는 아름다운 보석입니다.</html>");
-            masegeLabel2 = new JLabel("<html>White, Black, Rose pink, Burgundy color와 잘 어우러지며<br>" +
-                    "세련되고 우아한 무드를 주는 office look, feminine look에<br>Cobjet을 함께 매치해 보세요. :)</html>");
+            masegeLabel1 = new JLabel("<html>노란색과 녹색이 혼합된 듯한 미묘한 색깔을 지니고 있는 페리도트(감람석)는 달빛 아래에서 보면" +
+                    "<br>에메랄드처럼 짙은 녹색이 나타나기 때문에 ‘이브닝 에메랄드’ 라는 로맨틱한 별명을 가지고 있습니다.</html>");
+            masegeLabel2 = new JLabel("<html>페리도트는 YELLOW, KHAKI, PEACH, GREEN color의 style과 잘 어우러지며<br>" +
+                    "때로는 office look으로 세련되게, 때로는 daily look으로<br>모던하게 매치하며 Cobjet과 함께 해보아요 :)</html>");
         }
         if (stones[8].equals(finalStone)) {
-            masegeLabel1 = new JLabel("<html>9월의 탄생석 '사파이어'는 진실한 우정과 충성, 불현, 진리 등을 상징하는 보석입니다." +
-                    "<br>가넷은 붉은색 이외에도 노랑, 주황, 초록, 자주, 검정색 등 다양한 색감을 자랑하는 아름다운 보석입니다.</html>");
-            masegeLabel2 = new JLabel("<html>White, Black, Rose pink, Burgundy color와 잘 어우러지며<br>" +
-                    "세련되고 우아한 무드를 주는 office look, feminine look에<br>Cobjet을 함께 매치해 보세요. :)</html>");
+            masegeLabel1 = new JLabel("<html>‘하늘을 상징하는 돌’ 사파이어는 그리스어, 라틴어, 히브리어로 ‘파랑’을 의미합니다." +
+                    "<br>덕망과 자애, 성실과 진실을 상징하는 사파이어는 치료의 힘을 가진 돌로 여겨졌으며," +
+                    "<br>불길한 것으로부터 인간의 건강과 생명을 보호해주며 평화를 준다고 여겨져 왔습니다.</html>");
+            masegeLabel2 = new JLabel("<html>사파이어는 DENIM, KHAKI, PEACH, GREEN, YELLOW color의 style과<br>" +
+                    "잘 어우러지며 때로는 office look으로 세련되게, 때로는 daily look으로 모던하게<br>매치하며 Cobjet와 만들어보아요 :)</html>");
         }
         if (stones[9].equals(finalStone)) {
-            masegeLabel1 = new JLabel("<html>10월의 탄생석 '오팔'은 진실한 우정과 충성, 불현, 진리 등을 상징하는 보석입니다." +
-                    "<br>가넷은 붉은색 이외에도 노랑, 주황, 초록, 자주, 검정색 등 다양한 색감을 자랑하는 아름다운 보석입니다.</html>");
-            masegeLabel2 = new JLabel("<html>White, Black, Rose pink, Burgundy color와 잘 어우러지며<br>" +
-                    "세련되고 우아한 무드를 주는 office look, feminine look에<br>Cobjet을 함께 매치해 보세요. :)</html>");
+            masegeLabel1 = new JLabel("<html>‘화려한 유색 효과’를 볼 수 있는 오팔은 그리스어의 오팔리오스에서 ‘귀한 돌’이란 뜻을 가지고 있습니다. " +
+                    "<br>고대 로마인은 오팔을 ‘큐피트 비데로스(사랑스러운 아이)라고 불렀으며 희망과 청순, 신과 사람의 사랑을 상징합니다.</html>");
+            masegeLabel2 = new JLabel("<html>오팔은 화이트, 그린, 실버, 블루, 골드, 핑크, 옐로우 등 색이 다양하여<br>" +
+                    "모든 스타일을 제 스스로 해석하며 소화하는 신기한 보석입니다.</html>");
         }
         if (stones[10].equals(finalStone)) {
-            masegeLabel1 = new JLabel("<html>11월의 탄생석 '토파즈'는 진실한 우정과 충성, 불현, 진리 등을 상징하는 보석입니다." +
-                    "<br>가넷은 붉은색 이외에도 노랑, 주황, 초록, 자주, 검정색 등 다양한 색감을 자랑하는 아름다운 보석입니다.</html>");
-            masegeLabel2 = new JLabel("<html>White, Black, Rose pink, Burgundy color와 잘 어우러지며<br>" +
-                    "세련되고 우아한 무드를 주는 office look, feminine look에<br>Cobjet을 함께 매치해 보세요. :)</html>");
+            masegeLabel1 = new JLabel("<html>토파즈는 위스키 색과 같은 짙은 오렌지색이 대표적이지만 호랑이의 눈빛을 닮은 갈색도 있으며," +
+                    "<br>성난 고양이의 눈동자를 연상시키는 초록색, 공작의 눈빛을 닮은 핑크빛도 있는 아주 매력적인 보석입니다.</html>");
+            masegeLabel2 = new JLabel("<html>11월의 탄생석 토파즈는 GREEN, GRAY, BLUE color의 style에서 " +
+                    "<br>더 아름다운 빛을 내는 Cobjet 반지와 함께 매치해 보아요 :)</html>");
         }
         if (stones[11].equals(finalStone)) {
-            masegeLabel1 = new JLabel("<html>12월의 탄생석 '터키석'은 진실한 우정과 충성, 불현, 진리 등을 상징하는 보석입니다." +
-                    "<br>가넷은 붉은색 이외에도 노랑, 주황, 초록, 자주, 검정색 등 다양한 색감을 자랑하는 아름다운 보석입니다.</html>");
-            masegeLabel2 = new JLabel("<html>White, Black, Rose pink, Burgundy color와 잘 어우러지며<br>" +
-                    "세련되고 우아한 무드를 주는 office look, feminine look에<br>Cobjet을 함께 매치해 보세요. :)</html>");
+            masegeLabel1 = new JLabel("<html>‘행운의 보석’,‘신으로부터 받은 신성한 보석’이라 불리는 터키석은<br>성공과 승리를 약속하는 12월의 탄생석입니다. " +
+                    "<br>하지만 터키에는 터키석이 없습니다. 그리스어로는 ‘Callaite(아름다운 돌)’, 페르시아어로는 페로자(Ferozah)<br>" +
+                    "또는 피로자(Firozah)로 승리를 의미합니다. </html>");
+            masegeLabel2 = new JLabel("<html>터키석은 DENIM, KHAKI, PEACH, GREEN, YELLOW color의 style과<br>" +
+                    "잘 어우러지며 때로는 office look으로 세련되게, 때로는 daily look으로 모던하게 매치하며<br>Cobjet와 만들어보아요 :)</html>");
         }
 
         masegeLabel1.setFont(new Font("돋움", Font.PLAIN, 13));
@@ -243,10 +250,9 @@ public class Recommend extends JFrame {
         nextPage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                OrderBasket frame = new OrderBasket(finalDesign, finalColor, finalStone, finalCarat, finalPrice);
-                setVisible(false);
-
-            }
+                OrderBasket frame = new OrderBasket(finalDesign, finalColor, finalStone,
+                        finalCarat, finalPrice);
+                setVisible(false); }
         });
         
         //이전 페이지로 넘어가는 버튼
@@ -266,35 +272,14 @@ public class Recommend extends JFrame {
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-
-
     }
 
     class RoundedButton1 extends JButton {
-       /* public RoundedButton1() {
-            super();
-            decorate();
-        }*/
 
         public RoundedButton1(String text) {
             super(text);
             decorate();
         }
-
-        /*public RoundedButton1(Action action) {
-            super(action);
-            decorate();
-        }
-
-        public RoundedButton1(Icon icon) {
-            super(icon);
-            decorate();
-        }
-
-        public RoundedButton1(String text, Icon icon) {
-            super(text, icon);
-            decorate();
-        }*/
 
         protected void decorate() {
             setBorderPainted(false);

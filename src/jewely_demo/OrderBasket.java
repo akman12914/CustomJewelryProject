@@ -315,25 +315,26 @@ public class OrderBasket extends JFrame {
                 rletterTxtField.setFont(fontstyle6);
             }
         });
+
+
         Order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String letter = rletterTxtField.getText().trim();
 
                 if (!letter.equals("각인 내용")) {
-                    JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
-                            + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n각인 내용 : ["
-                            + letter + "]\n 총 가격 :" + finalPrice, "주문 완료", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), "
+                            + "디자인(" + finalDesign + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n"
+                            + "각인 내용 : [" + letter + "]\n 총 가격 :" + finalPrice, "주문 완료",
+                            JOptionPane.INFORMATION_MESSAGE);
+
                     setVisible(true);
                 }
-
                 if (letter.equals("각인 내용"))
-                    JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
-                            + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
-                setVisible(true);
-
-
-            }
+                    JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), "
+                            + "디자인(" + finalDesign + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n"
+                            + "총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
+                setVisible(true); }
         });
         Main.addActionListener(new ActionListener() {
             @Override

@@ -292,6 +292,9 @@ public class Decision extends JFrame{
         finalStone = stone;
         setMean(finalStone);
     }
+
+
+
     class ButtonListenerCount implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
