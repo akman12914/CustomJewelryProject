@@ -21,7 +21,7 @@ public class TableController implements ListSelectionListener{
     DataEngineInterface dataMgr;
     @SuppressWarnings("serial")
     void init() {
-        dataMgr = OrderList.engine;   // 구체 클래스 SongMgr 객체가 설정됨
+        dataMgr = OrderList.engine;   // 구체 클래스 RingMgr 객체가 설정됨
         tableModel = new DefaultTableModel(dataMgr.getColumnNames(), 0){  //셀 수정 못하게 하는 부분
             public boolean isCellEditable(int row, int column){
                 return false;
@@ -53,7 +53,7 @@ public class TableController implements ListSelectionListener{
         }
         tableModel.addRow(editTexts);
     }
-    // 현재 선택된 행을 SongMgr에서 삭제하고 테이블에서 삭제
+    // 현재 선택된 행을 RingMgr에서 삭제하고 테이블에서 삭제
     void removeRow() {
         if (selectedIndex < 0) return;
         String key = (String)tableModel.getValueAt(selectedIndex, 0);

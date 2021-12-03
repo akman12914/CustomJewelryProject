@@ -263,7 +263,7 @@ public class Recommend extends JFrame {
         returnPage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Decision temp2 = new Decision(finalDesign);
+                new Decision(finalDesign);
                 setVisible(false);
             }
         });
