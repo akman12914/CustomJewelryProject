@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import facade.DataEngineInterface;
 import store.JewelryStore;
+import store.TableSelectionDemo;
 
 import java.awt.GridLayout;
 import java.awt.Container;
@@ -19,7 +20,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class GUIMain extends JFrame{
-
+    TableSelectionDemo tableDemo = new TableSelectionDemo();
     String design[] = {"다이애나반지", "메리반지", "모던반지", "모어데이반지", "바코드반지", "박스큐빅반지","시계반지",
             "썸타임반지", "애프터레인반지", "월계수반지", "큐빅반지", "타임큐빅반지","투웨이반지","팅커반지","포에버반지"};
     String finalDesign = null;
@@ -131,8 +132,6 @@ public class GUIMain extends JFrame{
         design13 = new ImageIcon("RingDesignImage/투웨이반지.jpg");
         design14 = new ImageIcon("RingDesignImage/팅커반지.jpg");
 
-        //imageLabel.setIcon(design0);
-        //imageLabel.setBounds(50,50,550,350);
 
         JButton design00 = new JButton("다이애나반지");
         JButton design01 = new JButton("메리반지");
@@ -149,6 +148,7 @@ public class GUIMain extends JFrame{
         JButton design012 = new JButton("타임큐빅반지");
         JButton design013 = new JButton("투웨이반지");
         JButton design014 = new JButton("팅커반지");
+
 
         finalSetIcon(design00,design0);
         finalSetIcon(design01,design1);
@@ -285,6 +285,7 @@ public class GUIMain extends JFrame{
                    designPrint.setText("반지 디자인 : " + design);
                }
             }
+            tableDemo.showRecommandCombination();
 
 
         }

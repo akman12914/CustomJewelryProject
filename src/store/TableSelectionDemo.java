@@ -1,5 +1,8 @@
 package store;
 
+import jewely_demo.DetailRing;
+import jewely_demo.GUIMain;
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,6 +30,11 @@ public class TableSelectionDemo extends JPanel {
         add(bottom, BorderLayout.PAGE_END);*/
 
         setupTopPane();
+    }
+    public void showRecommandCombination(){
+        String[] recommendContent = new String[3];
+        DetailRing dr = new DetailRing();
+        dr.createAndShowGUI2();
     }
     void setupTopPane() {
         JPanel topPane = new JPanel();
