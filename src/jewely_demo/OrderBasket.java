@@ -56,7 +56,7 @@ public class OrderBasket extends JFrame {
 
 
 
-    //JTextField resultTF = new JTextField("0", 20);
+
     //상단 패널 안에 원석, 캐럿, 원석명, 가격, 색상, 색상명, 디자인, 디자인명의 패널 추가
     JPanel TopPanel = new JPanel(new GridLayout(1, 3));
     JPanel stPanel = new JPanel(new GridLayout(2, 1));
@@ -118,7 +118,7 @@ public class OrderBasket extends JFrame {
         totalPricePanel = new JLabel("총 가격 : " + total, SwingConstants.CENTER);
 
 
-//선택된 stone에 따라 탄생석 의미 라벨에 추가
+        //선택된 stone에 따라 탄생석 의미 라벨에 추가
         for(int i=0; i<12; i++) {
             if (stones[i].equals(finalStone))
                 stMeanLabel = new JLabel(means[i], SwingConstants.CENTER);
@@ -218,7 +218,7 @@ public class OrderBasket extends JFrame {
             }
         });
 
-//각인 내용 입력후 각 폰트 클릭시 변경되는 클릭이벤트
+        //각인 내용 입력후 각 폰트 클릭시 변경되는 클릭이벤트
         font1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -256,7 +256,7 @@ public class OrderBasket extends JFrame {
                 rLetter_TxtField.setFont(fontStyle6);
             }
         });
-        //주문 버튼 클릭시 각인내용 유무에 따른 이벤트(다이얼로그 주문내역 출력)
+        //주문 버튼 클릭시 각인내용 유무에 따른 이벤트(다이얼로그 주문내역 출력 후 시작화면 돌아가기)
         Order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -267,12 +267,16 @@ public class OrderBasket extends JFrame {
                             + "), 색상(" + finalColor + "), 반지 호수(" + finalRSize + ")]\n각인 내용 : ["
                             + letter + "]\n 총 가격 :" + finalPrice, "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                     setVisible(true);
+                    GUIMain frame = new GUIMain();
+                    frame.createAndShowGUI();
                 }
 
                 if (letter.equals("각인 내용"))
                     JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
                             + "), 색상(" + finalColor + "), 반지 호수(" + finalRSize + ")]\n총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                 setVisible(true);
+                GUIMain frame = new GUIMain();
+                frame.createAndShowGUI();
 
 
             }
@@ -288,7 +292,7 @@ public class OrderBasket extends JFrame {
 
 
         FocusEvent();
-//font버튼에 이미지 추가하기
+        //font버튼에 이미지 추가하기
         fontIcon(font1, fontImage[0]);
         fontIcon(font2, fontImage[1]);
         fontIcon(font3, fontImage[2]);
