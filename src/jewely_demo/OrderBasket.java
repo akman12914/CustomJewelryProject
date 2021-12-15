@@ -18,20 +18,21 @@ public class OrderBasket extends JFrame {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    JLabel stmeanLabel = null;
+    JLabel stMeanLabel = null;
     String finalStone = null;
     String finalColor = null;
     String finalDesign = null;
 
     String finalCarat = null;
-    String finalrSize = null;
+    String finalRSize = null;
     int finalPrice = 0;
-    Font fontstyle1 = new Font("궁서", Font.BOLD, 30);
-    Font fontstyle2 = new Font("바탕", Font.BOLD, 30);
-    Font fontstyle3 = new Font("굴림",Font.BOLD,30);
-    Font fontstyle4 = new Font("맑은 고딕",Font.BOLD,30);
-    Font fontstyle5 = new Font("굵은안상수체",Font.BOLD,30);
-    Font fontstyle6 = new Font("한컴 쿨재즈 B",Font.BOLD,30);
+    Font fontStyle1 = new Font("궁서", Font.BOLD, 30);
+    Font fontStyle2 = new Font("바탕", Font.BOLD, 30);
+    Font fontStyle3 = new Font("굴림",Font.BOLD,30);
+    Font fontStyle4 = new Font("맑은 고딕",Font.BOLD,30);
+    Font fontStyle5 = new Font("굵은안상수체",Font.BOLD,30);
+    Font fontStyle6 = new Font("한컴 쿨재즈 B",Font.BOLD,30);
+
 
 
 
@@ -42,25 +43,17 @@ public class OrderBasket extends JFrame {
     String means[] = {"진실, 우애, 정조", "평화, 성실", "젊음, 총명, 침착", "사랑, 순결, 신념",
             "행운, 연애, 행복", "부귀, 장수, 건강", "사랑, 진실, 정조", "화합, 부부애정", "성실, 지혜, 자애",
             "희망, 안락, 인내", "건강, 우정, 희망, 결백", "성공, 번영, 불굴"};
-    String designs[] = {"bold", "thin", "wave"};
     String colors[] = {"실버", "골드", "로즈골드"};
-    String carats[] = {"0.3", "0.5", "0.7", "1.0"};
     String sizes[] = {"1호(44mm)", "2호(45mm)", "3호(46mm)", "4호(47mm)", "5호(47.5mm)", "6호(48.5mm)",
             "7호(49mm)", "8호(50mm)*여성 추천*", "9호(51mm)*여성 추천*", "10호(52mm)*여성 추천*", "11호(53.5mm)*여성 추천*", "12호(54.5mm)", "13호(55.5mm)", "14호(56.5mm)",
             "15호(57.5mm)", "16호(58.5mm)*남성 추천*", "17호(60mm)*남성 추천*", "18호(61.5mm)*남성 추천*", "19호(62.5mm)*남성 추천*", "20호(63.5mm)*남성 추천*", "21호(65mm)", "22호(66mm)",
             "23호(67mm)", "24호(68mm)", "25호(69mm)", "26호(70mm)", "27호(71mm)", "28호(72mm)", "29호(73mm)", "30호(74mm)"};
+    ImageIcon[] fontImage = {new ImageIcon("./FontImage/font1.jpg"),new ImageIcon("./FontImage/font2.jpg"),
+            new ImageIcon("./FontImage/font3.jpg"),new ImageIcon("./FontImage/font4.jpg"),
+            new ImageIcon("./FontImage/font5.jpg"),new ImageIcon("./FontImage/font6.jpg"),};
 
-    String sizes2[] = {"커플링 선택 안함", "1호(44mm)", "2호(45mm)", "3호(46mm)", "4호(47mm)", "5호(47.5mm)", "6호(48.5mm)",
-            "7호(49mm)", "8호(50mm)*여성 추천*", "9호(51mm)*여성 추천*", "10호(52mm)*여성 추천*", "11호(53.5mm)*여성 추천*", "12호(54.5mm)", "13호(55.5mm)", "14호(56.5mm)",
-            "15호(57.5mm)", "16호(58.5mm)*남성 추천*", "17호(60mm)*남성 추천*", "18호(61.5mm)*남성 추천*", "19호(62.5mm)*남성 추천*", "20호(63.5mm)*남성 추천*", "21호(65mm)", "22호(66mm)",
-            "23호(67mm)", "24호(68mm)", "25호(69mm)", "26호(70mm)", "27호(71mm)", "28호(72mm)", "29호(73mm)", "30호(74mm)"};
 
-    ImageIcon fontimage1 = new ImageIcon("./FontImage/font1.jpg");
-    ImageIcon fontimage2 = new ImageIcon("./FontImage/font2.jpg");
-    ImageIcon fontimage3 = new ImageIcon("./FontImage/font3.jpg");
-    ImageIcon fontimage4 = new ImageIcon("./FontImage/font4.jpg");
-    ImageIcon fontimage5 = new ImageIcon("./FontImage/font5.jpg");
-    ImageIcon fontimage6 = new ImageIcon("./FontImage/font6.jpg");
+
 
 
     //JTextField resultTF = new JTextField("0", 20);
@@ -69,27 +62,27 @@ public class OrderBasket extends JFrame {
     JPanel stPanel = new JPanel(new GridLayout(2, 1));
     JPanel coPanel = new JPanel(new GridLayout(1, 1));
     JPanel dePanel = new JPanel(new GridLayout(1, 1));
-    JLabel stonetxtLabel;
+    JLabel stone_txtLabel;
     JLabel caratLabel;
-    JLabel colortxtLabel;
+    JLabel color_txtLabel;
 
-    JLabel designtxtLabel;
+    JLabel design_txtLabel;
 
 
 
 
     //중간에 위치한 텍스트 패널에 반지호수, 각인, 체크박스 패널을 추가(rletter는 주문자 반지각인)
     JPanel textPanel = new JPanel(new GridLayout(2, 1));
-    JPanel ringsizetxtPanel = new JPanel(new GridLayout(3, 1));
-    JPanel sizecomboPanel = new JPanel();
-    JComboBox sizecombo = new JComboBox(sizes);
+    JPanel ringSize_txtPanel = new JPanel(new GridLayout(3, 1));
+    JPanel sizeComboPanel = new JPanel();
+    JComboBox sizeCombo = new JComboBox(sizes);
 
 
-    //    JLabel txtLabel= new JLabel();
-    JTextField rletterTxtField = new JTextField("각인 내용", 5);
 
+    JTextField rLetter_TxtField = new JTextField("각인 내용", 5);
 
-    JPanel rcheckPanel = new JPanel(new GridLayout(1, 2));
+//하부에 위치한 각인 위치 내부 외부 체크박스와 텍스트필드, 폰트버튼 추가
+    JPanel rCheckPanel = new JPanel(new GridLayout(1, 2));
     JCheckBox chk1 = new JCheckBox("내부");
     JCheckBox chk2 = new JCheckBox("외부");
     JPanel fontPanel = new JPanel(new GridLayout(2, 3));
@@ -104,7 +97,7 @@ public class OrderBasket extends JFrame {
     //하단에 위치한 bottomPanel에  폰트 패널과 주문 패널을 추가, 각 패널에 폰트 버튼과 주문버튼 추가
     JPanel bottomPanel = new JPanel(new GridLayout(2, 1));
     JPanel orderPanel = new JPanel(new GridLayout(1 ,2));
-    JLabel totalpricePanel;
+    JLabel totalPricePanel;
     RoundedButton Order = new RoundedButton("주문하기");
     RoundedButton Main = new RoundedButton("홈으로 돌아가기");
 
@@ -118,63 +111,23 @@ public class OrderBasket extends JFrame {
         this.finalPrice = finalPrice;
         int total = finalPrice;
 
-        stonetxtLabel = new JLabel("선택한 원석: " + this.finalStone, SwingConstants.CENTER);
+        stone_txtLabel = new JLabel("선택한 원석: " + this.finalStone, SwingConstants.CENTER);
         caratLabel = new JLabel("선택한 캐럿: " + this.finalCarat, SwingConstants.CENTER);
-        colortxtLabel = new JLabel("선택한 반지 색상: " + this.finalColor, SwingConstants.CENTER);
-        designtxtLabel = new JLabel("선택한 디자인: " + this.finalDesign, SwingConstants.CENTER);
-        totalpricePanel = new JLabel("총 가격 : " + total, SwingConstants.CENTER);
+        color_txtLabel = new JLabel("선택한 반지 색상: " + this.finalColor, SwingConstants.CENTER);
+        design_txtLabel = new JLabel("선택한 디자인: " + this.finalDesign, SwingConstants.CENTER);
+        totalPricePanel = new JLabel("총 가격 : " + total, SwingConstants.CENTER);
 
-        if (stones[0].equals(finalStone)) {
-            stmeanLabel = new JLabel(means[0], SwingConstants.CENTER);
-        }
-        if (stones[1].equals(finalStone)) {
 
-            stmeanLabel = new JLabel(means[1], SwingConstants.CENTER);
-        }
-        if (stones[2].equals(finalStone)) {
-
-            stmeanLabel = new JLabel(means[2], SwingConstants.CENTER);
-        }
-        if (stones[3].equals(finalStone)) {
-
-            stmeanLabel = new JLabel(means[3], SwingConstants.CENTER);
-        }
-        if (stones[4].equals(finalStone)) {
-
-            stmeanLabel = new JLabel(means[4], SwingConstants.CENTER);
-        }
-        if (stones[5].equals(finalStone)) {
-
-            stmeanLabel = new JLabel(means[5], SwingConstants.CENTER);
-        }
-        if (stones[6].equals(finalStone)) {
-
-            stmeanLabel = new JLabel(means[6], SwingConstants.CENTER);
-        }
-        if (stones[7].equals(finalStone)) {
-
-            stmeanLabel = new JLabel(means[7], SwingConstants.CENTER);
-        }
-        if (stones[8].equals(finalStone)) {
-
-            stmeanLabel = new JLabel(means[8], SwingConstants.CENTER);
-        }
-        if (stones[9].equals(finalStone)) {
-
-            stmeanLabel = new JLabel(means[9], SwingConstants.CENTER);
-        }
-        if (stones[10].equals(finalStone)) {
-
-            stmeanLabel = new JLabel(means[10], SwingConstants.CENTER);
-        }
-        if (stones[11].equals(finalStone)) {
-
-            stmeanLabel = new JLabel(means[11], SwingConstants.CENTER);
+//선택된 stone에 따라 탄생석 의미 라벨에 추가
+        for(int i=0; i<12; i++) {
+            if (stones[i].equals(finalStone))
+                stMeanLabel = new JLabel(means[i], SwingConstants.CENTER);
         }
 
 
         setTitle("basket");
         Container pane = getContentPane();
+
         //상단, 중간, 하단 패널 크기 지정
         TopPanel.setPreferredSize(new Dimension(500, 100));
         textPanel.setPreferredSize(new Dimension(300, 300));
@@ -186,16 +139,12 @@ public class OrderBasket extends JFrame {
         dePanel.setBounds(100, 100, 50, 50);
 
         //중간 패널의 반지호수 패널, 콤보 위치 및 크기 지정
-        ringsizetxtPanel.setPreferredSize(new Dimension(100, 10));
-        sizecomboPanel.setBounds(100, 100, 250, 10);
-        sizecombo.setPreferredSize(new Dimension(200, 50));
-
-
-
-
+        ringSize_txtPanel.setBounds(100, 100, 100, 10);
+        sizeComboPanel.setBounds(100, 100, 250, 10);
+        sizeCombo.setPreferredSize(new Dimension(200, 50));
 
         //중간 패널의 체크박스 패널, 체크박스 크기 지정
-        rcheckPanel.setPreferredSize(new Dimension(50, 10));
+        rCheckPanel.setPreferredSize(new Dimension(50, 10));
         chk1.setPreferredSize(new Dimension(5, 5));
         chk2.setPreferredSize(new Dimension(5, 5));
 
@@ -213,41 +162,37 @@ public class OrderBasket extends JFrame {
         pane.add(bottomPanel, BorderLayout.PAGE_END);
 
         //상단 패널의 아이템 목록 경계선 추가
-        TopPanel.setBorder(itemborder);
-        stPanel.setBorder(stborder);
-        coPanel.setBorder(coborder);
-        dePanel.setBorder(deborder);
+        TopPanel.setBorder(itemBorder);
+        stPanel.setBorder(stBorder);
+        coPanel.setBorder(coBorder);
+        dePanel.setBorder(deBorder);
         TopPanel.add(stPanel, BorderLayout.EAST);
         TopPanel.add(coPanel, BorderLayout.SOUTH);
         TopPanel.add(dePanel, BorderLayout.WEST);
 
-        stPanel.add(stonetxtLabel);
-//        stPanel.add(stonePLabel);
-        stPanel.add(stmeanLabel, BorderLayout.CENTER);
+        stPanel.add(stone_txtLabel);
+        stPanel.add(stMeanLabel, BorderLayout.CENTER);
 
-        coPanel.add(colortxtLabel);
-//        coPanel.add(colorPLabel);
-        dePanel.add(designtxtLabel);
-//        dePanel.add(designPLabel);
+        coPanel.add(color_txtLabel);
+        dePanel.add(design_txtLabel);
 
 
-        textPanel.setBorder(textborder);
-        textPanel.add(ringsizetxtPanel);
+        textPanel.setBorder(textBorder);
+        textPanel.add(ringSize_txtPanel);
         textPanel.add(fontPanel);
 
-        ringsizetxtPanel.add(sizecomboPanel);
-        sizecomboPanel.add(sizecombo);
-
-//        txtLabel.setBounds(100, 100,150,50);
-        rletterTxtField.setBounds(10, 10, 50, 50);
-
-        ringsizetxtPanel.add(rletterTxtField);
-//        ringsizetxtPanel.add(txtLabel);
+        ringSize_txtPanel.add(sizeComboPanel);
+        sizeComboPanel.add(sizeCombo);
 
 
-        ringsizetxtPanel.add(rcheckPanel);
-        rcheckPanel.add(chk1, BorderLayout.EAST);
-        rcheckPanel.add(chk2, BorderLayout.WEST);
+        rLetter_TxtField.setBounds(10, 10, 50, 50);
+
+        ringSize_txtPanel.add(rLetter_TxtField);
+
+
+        ringSize_txtPanel.add(rCheckPanel);
+        rCheckPanel.add(chk1, BorderLayout.EAST);
+        rCheckPanel.add(chk2, BorderLayout.WEST);
 
 
         fontPanel.add(font1);
@@ -259,82 +204,80 @@ public class OrderBasket extends JFrame {
 
         bottomPanel.add(Order, BorderLayout.CENTER);
 
-        bottomPanel.add(totalpricePanel);
+        bottomPanel.add(totalPricePanel);
         bottomPanel.add(orderPanel);
         orderPanel.add(Order, BorderLayout.EAST);
         orderPanel.add(Main, BorderLayout.WEST);
 
-        sizecombo.addActionListener(new ActionListener() {
+        sizeCombo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String rsize = sizecombo.getSelectedItem().toString();
-                finalrSize = rsize;
+                String rsize = sizeCombo.getSelectedItem().toString();
+                finalRSize = rsize;
 
             }
         });
 
-
+//각인 내용 입력후 각 폰트 클릭시 변경되는 클릭이벤트
         font1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //font1(궁서)이 눌릴때
-                rletterTxtField.setFont(fontstyle1);
-
+                rLetter_TxtField.setFont(fontStyle1);
             }
         });
         font2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                rletterTxtField.setFont(fontstyle2);
-
-
+                rLetter_TxtField.setFont(fontStyle2);
             }
         });
 
         font3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                rletterTxtField.setFont(fontstyle3);
+                rLetter_TxtField.setFont(fontStyle3);
             }
         });
         font4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                rletterTxtField.setFont(fontstyle4);
+                rLetter_TxtField.setFont(fontStyle4);
             }
         });
         font5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                rletterTxtField.setFont(fontstyle5);
+                rLetter_TxtField.setFont(fontStyle5);
             }
         });
         font6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                rletterTxtField.setFont(fontstyle6);
+                rLetter_TxtField.setFont(fontStyle6);
             }
         });
+        //주문 버튼 클릭시 각인내용 유무에 따른 이벤트(다이얼로그 주문내역 출력)
         Order.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String letter = rletterTxtField.getText().trim();
+                String letter = rLetter_TxtField.getText().trim();
 
                 if (!letter.equals("각인 내용")) {
                     JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
-                            + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n각인 내용 : ["
+                            + "), 색상(" + finalColor + "), 반지 호수(" + finalRSize + ")]\n각인 내용 : ["
                             + letter + "]\n 총 가격 :" + finalPrice, "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                     setVisible(true);
                 }
 
                 if (letter.equals("각인 내용"))
                     JOptionPane.showMessageDialog(null, "주문자 반지 :[원석 (" + finalStone + "), 디자인(" + finalDesign
-                            + "), 색상(" + finalColor + "), 반지 호수(" + finalrSize + ")]\n총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
+                            + "), 색상(" + finalColor + "), 반지 호수(" + finalRSize + ")]\n총 가격 :" + finalPrice + "원입니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);
                 setVisible(true);
 
 
             }
         });
+        //시작화면으로 돌아가는 버튼 이벤트
         Main.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -345,13 +288,13 @@ public class OrderBasket extends JFrame {
 
 
         FocusEvent();
-
-        fontIcon(font1, fontimage1);
-        fontIcon(font2, fontimage2);
-        fontIcon(font3, fontimage3);
-        fontIcon(font4, fontimage4);
-        fontIcon(font5, fontimage5);
-        fontIcon(font6, fontimage6);
+//font버튼에 이미지 추가하기
+        fontIcon(font1, fontImage[0]);
+        fontIcon(font2, fontImage[1]);
+        fontIcon(font3, fontImage[2]);
+        fontIcon(font4, fontImage[3]);
+        fontIcon(font5, fontImage[4]);
+        fontIcon(font6,fontImage[5]);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(1920, 1280));
         pack();
@@ -359,12 +302,12 @@ public class OrderBasket extends JFrame {
 
     }
 
-
-    Border itemborder = BorderFactory.createTitledBorder("주문목록");
-    Border textborder = BorderFactory.createTitledBorder("입력목록");
-    Border stborder = BorderFactory.createTitledBorder("선택한 원석");
-    Border coborder = BorderFactory.createTitledBorder("선택한 색상");
-    Border deborder = BorderFactory.createTitledBorder("선택한 디자인");
+//각 주문 목록에 경계선 추가
+    Border itemBorder = BorderFactory.createTitledBorder("주문목록");
+    Border textBorder = BorderFactory.createTitledBorder("입력목록");
+    Border stBorder = BorderFactory.createTitledBorder("선택한 원석");
+    Border coBorder = BorderFactory.createTitledBorder("선택한 색상");
+    Border deBorder = BorderFactory.createTitledBorder("선택한 디자인");
 
 
     //폰트 버튼 이미지 아이콘 크기 및 이미지아이콘 변환
@@ -377,28 +320,28 @@ public class OrderBasket extends JFrame {
 
     }
 
-
+//각인 내용 텍스트 필드 입력시 '각인내용' 없애는 기능
     private void FocusEvent() {
-        rletterTxtField.addFocusListener(new FocusListener() {
+        rLetter_TxtField.addFocusListener(new FocusListener() {
             @Override
             public void focusLost(FocusEvent e) {
-                if (rletterTxtField.getText().trim().length() == 0) {
-                    rletterTxtField.setText("각인 내용");
+                if (rLetter_TxtField.getText().trim().length() == 0) {
+                    rLetter_TxtField.setText("각인 내용");
                 }
 
             }
 
             @Override
             public void focusGained(FocusEvent e) {
-                if (rletterTxtField.getText().trim().equals("각인 내용")) {
-                    rletterTxtField.setText("");
+                if (rLetter_TxtField.getText().trim().equals("각인 내용")) {
+                    rLetter_TxtField.setText("");
                 }
             }
         });
 
     }
 
-
+//버튼 디자인
     public class RoundedButton extends JButton {
         public RoundedButton() {
             super();
@@ -458,32 +401,7 @@ public class OrderBasket extends JFrame {
         }
     }
 
-    public class RoundJTextField extends JTextField {
-        private Shape shape;
-
-        public RoundJTextField(int size) {
-            super(size);
-            setOpaque(false); // As suggested by @AVD in comment.
-        }
-
-        protected void paintComponent(Graphics g) {
-            g.setColor(getBackground());
-            g.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 15, 15);
-            super.paintComponent(g);
-        }
-
-        protected void paintBorder(Graphics g) {
-            g.setColor(getForeground());
-            g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 15, 15);
-        }
-
-        public boolean contains(int x, int y) {
-            if (shape == null || !shape.getBounds().equals(getBounds())) {
-                shape = new RoundRectangle2D.Float(0, 0, getWidth() - 1, getHeight() - 1, 15, 15);
-            }
-            return shape.contains(x, y);
-        }
-    }
+    
 
 }
 
